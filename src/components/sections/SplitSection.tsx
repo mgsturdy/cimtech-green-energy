@@ -35,7 +35,7 @@ export function SplitSection({
         <Image
           src={image}
           fill
-          className="object-cover object-center"
+          className="object-cover object-top"
           alt={imageAlt}
         />
         {imageOverlay && (
