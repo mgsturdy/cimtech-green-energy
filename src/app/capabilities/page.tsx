@@ -36,7 +36,7 @@ export default function CapabilitiesPage() {
       </Section>
 
       {/* 3. Accordion Detail */}
-      <Section className="bg-surface-elevated">
+      <Section dark>
         <Container>
           <h2 className="font-sans text-3xl font-bold text-center mb-10">
             What We Do

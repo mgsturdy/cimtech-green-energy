@@ -32,7 +32,7 @@ export default function AboutPage() {
       </Section>
 
       {/* 3. 4 Pillars Accordion */}
-      <Section className="bg-surface-elevated">
+      <Section dark>
         <Container>
           <h2 className="font-sans text-3xl font-bold text-center mb-10">
             Our Core Values

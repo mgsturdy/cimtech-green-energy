@@ -21,7 +21,7 @@ export default function ServicesPage() {
       />
 
       {/* 2. Feature Grid */}
-      <Section>
+      <Section dark>
         <Container>
           <div className="text-center mb-12">
             <h2 className="font-sans text-3xl lg:text-4xl font-bold">
