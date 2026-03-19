@@ -18,6 +18,7 @@ export function TabSection({ tabs }: TabSectionProps) {
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
     if (hash && tabs.some((t) => t.id === hash)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(hash);
     }
   }, [tabs]);
