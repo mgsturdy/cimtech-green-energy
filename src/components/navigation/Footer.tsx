@@ -67,11 +67,11 @@ export function Footer() {
           {/* Brand column */}
           <div className="space-y-6">
             <Image
-              src="/images/logo.png"
+              src="/images/footer-logo.png"
               alt="CIMtech Green Energy"
-              width={140}
-              height={36}
-              className="h-9 w-auto brightness-0 invert"
+              width={160}
+              height={40}
+              className="h-10 w-auto"
             />
             <div className="space-y-2 text-sm">
               <p>{contactInfo.address}</p>
@@ -120,17 +120,6 @@ export function Footer() {
       <div className="border-t border-[#334155]">
         <Container className="py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#94A3B8]">
           <p>&copy; 2026 CIMtech Green Energy Mfg</p>
-          <p>
-            A CimTech company &middot; Sister company of{' '}
-            <a
-              href="https://risehydrogen.com"
-              className="hover:text-white transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Rise Hydrogen
-            </a>
-          </p>
         </Container>
       </div>
     </footer>

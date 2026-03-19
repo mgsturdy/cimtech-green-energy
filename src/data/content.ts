@@ -52,7 +52,7 @@ export interface PillarItem {
 
 export const homeContent = {
   hero: {
-    badge: "Canada's Top 10 Manufacturing Company",
+    badge: "One of Canada's Top 10 Manufacturing Companies!",
     headline: 'Award-Winning Green Energy Manufacturing',
     description: 'Hydrogen fuel cell & electrolyzer manufacturing with over two decades of experience. Instrumental in implementing 60,000+ fuel cell devices in real-world applications.',
     primaryCta: { label: 'Get a Quote', href: '/contact' },

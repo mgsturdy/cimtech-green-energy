@@ -130,16 +130,18 @@ export default function Home() {
       </Section>
 
       {/* Portfolio Strip */}
-      <Container>
-        <div className="text-center mb-1">
+      <Section className="pb-0">
+        <Container>
+          <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-2.5">
             <span className="h-px w-8 bg-accent" />
             <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent">Our Work</span>
             <span className="h-px w-8 bg-accent" />
           </div>
         </div>
-        <PortfolioGrid items={portfolio} />
-      </Container>
+          <PortfolioGrid items={portfolio} />
+        </Container>
+      </Section>
     </>
   );
 }
