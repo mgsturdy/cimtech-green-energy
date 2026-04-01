@@ -28,8 +28,7 @@ export const metadata: Metadata = {
     'Precision manufacturing partner serving defense, commercial, consumer, and clean energy sectors. NPI prototyping to production scale from Vancouver, Canada.',
 };
 
-// Note: font-sub (Inter) is the body default, deliberately inverted from Rise Hydrogen
-// which uses font-sans on body. CIMtech uses Inter (body-friendly) as default,
+// Note: font-sub (Inter) is the body default. CIMtech uses Inter (body-friendly) as default,
 // with font-sans (Plus Jakarta Sans) applied explicitly on headings.
 export default function RootLayout({
   children,
