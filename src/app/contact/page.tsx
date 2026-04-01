@@ -8,7 +8,7 @@ import { contactContent } from '@/data/content';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact CIMtech Green Energy for hydrogen fuel cell and electrolyzer manufacturing. Located in Surrey, BC, Canada.',
+    'Contact CIMtech Green Energy for precision manufacturing services. Located in Surrey, BC, Canada.',
 };
 
 export default function ContactPage() {

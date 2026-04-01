@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'CIMtech Green Energy — Hydrogen Fuel Cell & Electrolyzer Manufacturing',
+    default: 'CIMtech Green Energy — Precision Manufacturing Partner',
     template: '%s | CIMtech Green Energy',
   },
   description:
-    'Award-winning hydrogen fuel cell and electrolyzer manufacturing company in Canada. Top 10 green energy manufacturer serving the USA, Canada & Europe.',
+    'Precision manufacturing partner serving defense, commercial, consumer, and clean energy sectors. NPI prototyping to production scale from Vancouver, Canada.',
 };
 
 // Note: font-sub (Inter) is the body default, deliberately inverted from Rise Hydrogen
