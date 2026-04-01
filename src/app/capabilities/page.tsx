@@ -11,7 +11,7 @@ import { capabilitiesContent } from '@/data/content';
 export const metadata: Metadata = {
   title: 'Capabilities',
   description:
-    'CIMtech offers precision CNC machining, injection molding, fabrication, 3D printing, sub-assemblies, and quality assurance for fuel cell manufacturing.',
+    'CIMtech offers precision CNC machining, injection molding, fabrication, 3D printing, assembly & integration, and quality assurance across defense, commercial, consumer, and clean energy sectors.',
 };
 
 export default function CapabilitiesPage() {

@@ -11,16 +11,16 @@ const quickLinks = [
 ];
 
 const products = [
-  { label: 'Fuel Cell Stacks', href: '/products#fuel-cell-stacks' },
-  { label: 'Green Hydrogen', href: '/products#green-hydrogen' },
-  { label: 'Electrolyzer', href: '/products#electrolyzer' },
+  { label: 'Precision Components', href: '/what-we-build#precision-components' },
+  { label: 'Full Assemblies', href: '/what-we-build#assemblies' },
+  { label: 'Prototypes & NPI', href: '/what-we-build#prototypes' },
+  { label: 'Production Scale', href: '/what-we-build#production' },
 ];
 
 const resources = [
-  { label: 'Blog', href: '/resources/blog' },
-  { label: 'Careers', href: '/resources/careers' },
-  { label: 'Portfolio', href: '/resources/portfolio' },
-  { label: 'Media', href: '/resources/media' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Careers', href: '/contact' },
+  { label: 'Rise Power', href: 'https://risepower.com' },
 ];
 
 const socialLinks = [
@@ -111,15 +111,15 @@ export function Footer() {
           </div>
 
           <FooterColumn title="Quick Links" links={quickLinks} />
-          <FooterColumn title="Products" links={products} />
-          <FooterColumn title="Resources" links={resources} />
+          <FooterColumn title="What We Build" links={products} />
+          <FooterColumn title="Company" links={resources} />
         </div>
       </Container>
 
       {/* Bottom bar */}
       <div className="border-t border-[#334155]">
         <Container className="py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#94A3B8]">
-          <p>&copy; 2026 CIMtech Green Energy Mfg</p>
+          <p>&copy; 2026 CIMtech Green Energy</p>
         </Container>
       </div>
     </footer>

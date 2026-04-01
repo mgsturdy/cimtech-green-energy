@@ -8,7 +8,7 @@ import { servicesContent } from '@/data/content';
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'CIMtech offers NPI prototype development, repeat manufacturing, DFM, zero inventory program, electrolyzer & fuel cell solutions, and engineering development.',
+  description: 'CIMtech offers NPI prototype development, repeat manufacturing, DFM, zero inventory programs, complex system integration, and engineering development across all industries.',
 };
 
 export default function ServicesPage() {
