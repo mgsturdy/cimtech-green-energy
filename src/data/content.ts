@@ -71,7 +71,6 @@ export interface CapabilityCategoryItem {
 
 export const homeContent = {
   hero: {
-    badge: "One of Canada's Top 10 Manufacturing Companies",
     headline: 'Your Manufacturing Partner. From Prototype to Production.',
     description: 'Precision manufacturing across defense, commercial, consumer, and clean energy. Over two decades of experience bringing complex products from concept to scale.',
     primaryCta: { label: 'Start a project', href: '/contact' },
