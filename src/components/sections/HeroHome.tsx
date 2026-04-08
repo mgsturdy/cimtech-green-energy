@@ -62,7 +62,7 @@ export function HeroHome({
         {resolvedLabel && <p className="mono-label mb-6">{resolvedLabel}</p>}
         <AnimatedHeadline
           text={resolvedTitle}
-          className="font-semibold leading-[0.88] tracking-[-0.035em] w-full text-[clamp(3.25rem,10vw,11rem)]"
+          className="font-semibold leading-[0.9] tracking-[-0.035em] w-full text-[clamp(2.5rem,7.5vw,8rem)]"
         />
         {description && (
           <p className="mt-8 max-w-xl text-[var(--color-muted)] text-[var(--text-body)] leading-relaxed">
