@@ -1,83 +1,97 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { AnimatedHeadline } from '@/components/ui/AnimatedHeadline';
 import { Button } from '@/components/ui/Button';
-import { Container } from '@/components/ui/Container';
 
 type HeroHomeProps = {
-  badge: string;
-  headline: string;
-  description: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
-  backgroundImage: string;
+  // Modern API (from plan)
+  label?: string;
+  title?: string;
+  description?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  image?: string;
+  imageAlt?: string;
+  // Legacy / content.ts API
+  badge?: string;
+  headline?: string;
+  backgroundImage?: string;
 };
 
 export function HeroHome({
+  label,
   badge,
+  title,
   headline,
   description,
   primaryCta,
   secondaryCta,
+  image,
   backgroundImage,
+  imageAlt = '',
 }: HeroHomeProps) {
+  // Resolve props — support both legacy (content.ts) and new API
+  const resolvedLabel = label ?? badge;
+  const resolvedTitle = title ?? headline ?? '';
+  const resolvedImage = image ?? backgroundImage ?? '';
+
   return (
-    <section className="relative min-h-[520px] flex items-center overflow-hidden">
-      {/* Background image */}
+    <section className="relative min-h-screen flex flex-col justify-end overflow-hidden border-b border-[var(--color-border)]">
       <Image
-        src={backgroundImage}
+        src={resolvedImage}
+        alt={imageAlt}
         fill
-        className="object-cover"
-        alt=""
         priority
+        className="object-cover"
+        style={{ filter: 'url(#cimtech-duotone) brightness(0.45)' }}
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(4,31,26,0.4)] via-transparent to-[rgba(4,31,26,0.95)]" />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1A1A2E]/92 to-[#0f2a1a]/88" />
+      {/* Corner markers */}
+      <div className="absolute top-24 left-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)]">
+        + CIMTECH // EST. 2001 // ONTARIO, CAN
+      </div>
+      <div className="absolute top-24 right-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)]">
+        43.6532°N 79.3832°W +
+      </div>
 
-      {/* Dot grid */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, #16A34A 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-
-      {/* Content */}
-      <Container className="relative z-10 py-20 lg:py-28">
-        {/* Badge */}
-        <span className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 rounded-full px-4 py-2 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent-hover animate-[pulse-subtle_2s_infinite]" />
-          <span className="font-mono text-xs text-accent-hover tracking-wide">
-            {badge}
-          </span>
-        </span>
-
-        {/* Headline */}
-        <h1 className="font-sans text-5xl font-extrabold text-white leading-tight max-w-[680px] mb-5">
-          {headline}
-        </h1>
-
-        {/* Description */}
-        <p className="text-[17px] text-[#94A3B8] max-w-[560px] leading-relaxed mb-8">
-          {description}
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4">
-          <Button href={primaryCta.href} size="lg">
-            {primaryCta.label}
-          </Button>
-          <Button
-            href={secondaryCta.href}
-            variant="secondary"
-            size="lg"
-            className="border-white/20 text-white hover:border-white/50 bg-transparent"
+      <div className="relative mx-auto max-w-[1440px] w-full px-[var(--spacing-pad-x)] pb-24 pt-40">
+        {resolvedLabel && <p className="mono-label mb-6">{resolvedLabel}</p>}
+        <AnimatedHeadline
+          text={resolvedTitle}
+          className="font-semibold text-[var(--text-display)] leading-[0.95] max-w-5xl"
+        />
+        {description && (
+          <p className="mt-8 max-w-xl text-[var(--color-muted)] text-[var(--text-body)] leading-relaxed">
+            {description}
+          </p>
+        )}
+        {primaryCta && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="mt-10 flex flex-wrap gap-4"
           >
-            {secondaryCta.label}
-          </Button>
+            <Button href={primaryCta.href} variant="primary">{primaryCta.label}</Button>
+            {secondaryCta && (
+              <Button href={secondaryCta.href} variant="outline">{secondaryCta.label}</Button>
+            )}
+          </motion.div>
+        )}
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+        <div className="w-6 h-10 border border-[var(--color-border-strong)] rounded-full flex items-start justify-center p-1.5">
+          <motion.span
+            className="block w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"
+            animate={{ y: [0, 14, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          />
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
