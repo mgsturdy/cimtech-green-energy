@@ -2,12 +2,12 @@ import { Marquee } from './Marquee';
 
 const ITEMS = [
   'RUNTIME: 23Y',
-  '43.6532°N 79.3832°W',
+  '49.2827°N 123.1207°W',
   'STATUS: OPERATIONAL',
   'ISO 9001:2015',
   'NPI IN 14 DAYS',
   'EST. 2001',
-  'ONTARIO / CANADA',
+  'VANCOUVER / CANADA',
   '●',
 ];
 
