@@ -1,6 +1,5 @@
 import { HeroHome } from '@/components/sections/HeroHome';
 import { MetricsBand } from '@/components/sections/MetricsBand';
-import { SplitSection } from '@/components/sections/SplitSection';
 import { Accordion } from '@/components/sections/Accordion';
 import { IndustryCards } from '@/components/sections/IndustryCard';
 import { LogoBand } from '@/components/sections/LogoBand';
@@ -21,24 +20,6 @@ export default function Home() {
 
       {/* Metrics */}
       <MetricsBand metrics={homeContent.metrics} />
-
-      <TickerDivider />
-
-      {/* About Split */}
-      <Section>
-        <Container>
-          <SplitSection
-            badge={homeContent.about.badge}
-            title={homeContent.about.title}
-            image={homeContent.about.image}
-            imageAlt={homeContent.about.imageAlt}
-            imageOverlay={homeContent.about.imageCaption}
-          >
-            <p className="leading-relaxed">{homeContent.about.description}</p>
-            <p className="text-sm leading-relaxed">{homeContent.about.secondaryText}</p>
-          </SplitSection>
-        </Container>
-      </Section>
 
       <TickerDivider />
 

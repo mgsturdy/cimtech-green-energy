@@ -52,17 +52,17 @@ export function HeroHome({
 
       {/* Corner markers */}
       <div className="absolute top-24 left-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden sm:block">
-        + CIMTECH // EST. 2001 // ONTARIO, CAN
+        + CIMTECH // EST. 2001 // VANCOUVER, BC
       </div>
       <div className="absolute top-24 right-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden md:block">
-        43.6532°N 79.3832°W +
+        49.2827°N 123.1207°W +
       </div>
 
       <div className="relative mx-auto max-w-[1440px] w-full px-[var(--spacing-pad-x)] pb-24 pt-40">
         {resolvedLabel && <p className="mono-label mb-6">{resolvedLabel}</p>}
         <AnimatedHeadline
           text={resolvedTitle}
-          className="font-semibold text-[var(--text-display)] leading-[0.95] max-w-5xl"
+          className="font-semibold leading-[0.88] tracking-[-0.035em] w-full text-[clamp(3.25rem,10vw,11rem)]"
         />
         {description && (
           <p className="mt-8 max-w-xl text-[var(--color-muted)] text-[var(--text-body)] leading-relaxed">

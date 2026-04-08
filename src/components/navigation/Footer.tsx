@@ -42,7 +42,7 @@ export function Footer() {
         <div className="col-span-6 md:col-span-3">
           <p className="mono-label text-[var(--color-subtle)] mb-4">CONTACT</p>
           <ul className="space-y-2 text-sm">
-            <li>Ontario, Canada</li>
+            <li>Vancouver, BC, Canada</li>
             <li>hello@cimtech.ca</li>
             <li className="mono-label text-[var(--color-accent)] mt-4">● RESPONDS WITHIN 24H</li>
           </ul>
