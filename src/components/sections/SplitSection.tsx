@@ -22,23 +22,24 @@ export function SplitSection({
   children,
 }: SplitSectionProps) {
   return (
-    <div className={`grid grid-cols-12 gap-8 items-center ${reverse ? 'direction-rtl' : ''}`}>
+    <div className="grid grid-cols-12 gap-10 md:gap-12 items-start">
       <ScrollReveal className={`col-span-12 md:col-span-7 ${reverse ? 'md:order-last' : ''}`}>
         {badge && (
           <p className="mono-label text-[var(--color-accent)] mb-4 flex items-center gap-2">
             <span className="h-px w-6 bg-[var(--color-accent)]" /> {badge}
           </p>
         )}
-        <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-6 max-w-xl">{title}</h2>
-        <div className="text-[var(--color-muted)] space-y-4 max-w-lg">{children}</div>
+        <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-8">{title}</h2>
+        <div className="text-[var(--color-muted)] space-y-6">{children}</div>
       </ScrollReveal>
-      <ScrollReveal delay={0.15} className="col-span-12 md:col-span-5">
+      <ScrollReveal delay={0.15} className="col-span-12 md:col-span-5 md:sticky md:top-24">
         <ImageSpecimen
           src={image}
           alt={imageAlt}
           caption={imageOverlay}
-          width={445}
-          height={319}
+          width={560}
+          height={400}
+          className="w-full"
         />
       </ScrollReveal>
     </div>

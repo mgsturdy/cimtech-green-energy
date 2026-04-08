@@ -24,36 +24,42 @@ export default function IndustriesPage() {
 
       <TickerDivider />
 
-      {/* Industry verticals — alternating splits */}
-      {industriesContent.industries.map((industry, i) => (
-        <Section key={industry.title}>
-          <Container>
-            <SplitSection
-              badge={industry.number}
-              title={industry.title}
-              image={industry.image}
-              imageAlt={industry.imageAlt}
-              reverse={i % 2 === 1}
-            >
-              <div className="space-y-5">
-                <div>
-                  <p className="mono-label text-[var(--color-accent)] mb-2">WHAT WE SOLVE</p>
-                  <p className="text-[var(--color-muted)] leading-relaxed">{industry.whatWeSolve}</p>
-                </div>
-                <div>
-                  <p className="mono-label text-[var(--color-accent)] mb-2">WHY CIMTECH</p>
-                  <p className="text-[var(--color-muted)] leading-relaxed">{industry.whyCimtech}</p>
-                </div>
-                <div>
-                  <p className="mono-label text-[var(--color-accent)] mb-2">TYPICAL WORK</p>
-                  <p className="text-[var(--color-muted)] leading-relaxed">{industry.typicalWork}</p>
-                </div>
+      {/* Industry verticals — alternating splits, unified section rhythm */}
+      <Section>
+        <Container>
+          <div className="space-y-24 md:space-y-32">
+            {industriesContent.industries.map((industry, i) => (
+              <div
+                key={industry.title}
+                className={i > 0 ? 'pt-24 md:pt-32 border-t border-[var(--color-border)]' : ''}
+              >
+                <SplitSection
+                  badge={industry.number}
+                  title={industry.title}
+                  image={industry.image}
+                  imageAlt={industry.imageAlt}
+                  reverse={i % 2 === 1}
+                >
+                  <div>
+                    <p className="mono-label text-[var(--color-accent)] mb-2">WHAT WE SOLVE</p>
+                    <p className="text-[var(--color-muted)] leading-relaxed">{industry.whatWeSolve}</p>
+                  </div>
+                  <div>
+                    <p className="mono-label text-[var(--color-accent)] mb-2">WHY CIMTECH</p>
+                    <p className="text-[var(--color-muted)] leading-relaxed">{industry.whyCimtech}</p>
+                  </div>
+                  <div>
+                    <p className="mono-label text-[var(--color-accent)] mb-2">TYPICAL WORK</p>
+                    <p className="text-[var(--color-muted)] leading-relaxed">{industry.typicalWork}</p>
+                  </div>
+                </SplitSection>
               </div>
-            </SplitSection>
-          </Container>
-          {i < industriesContent.industries.length - 1 && <TickerDivider />}
-        </Section>
-      ))}
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <TickerDivider />
 
       {/* CTA */}
       <Section>
