@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { type AccordionDetailItem } from '@/data/content';
 
@@ -9,6 +9,7 @@ type AccordionDetailProps = { items: AccordionDetailItem[] };
 
 export function AccordionDetail({ items }: AccordionDetailProps) {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const reduced = useReducedMotion();
 
   return (
     <div className="flex flex-col gap-1">
@@ -42,9 +43,9 @@ export function AccordionDetail({ items }: AccordionDetailProps) {
             <AnimatePresence initial={false}>
               {isActive && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={reduced ? false : { height: 0, opacity: 0 }}
+                  animate={reduced ? undefined : { height: 'auto', opacity: 1 }}
+                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pb-6">

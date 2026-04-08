@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type LogoProps = {
   variant?: 'lockup' | 'mark' | 'wordmark';
@@ -9,6 +9,8 @@ type LogoProps = {
 };
 
 export function Logo({ variant = 'lockup', className = '', animated = true }: LogoProps) {
+  const reduced = useReducedMotion();
+  const shouldAnimate = animated && !reduced;
   const drawTransition = { duration: 0.8, ease: 'easeInOut' as const };
 
   if (variant === 'wordmark') {
@@ -23,22 +25,22 @@ export function Logo({ variant = 'lockup', className = '', animated = true }: Lo
     <g fill="none" stroke="#A8FF1F" strokeWidth="2" strokeLinecap="round">
       <motion.path
         d="M25 9a10 10 0 1 0 0 14"
-        initial={animated ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
+        initial={shouldAnimate ? { pathLength: 0 } : false}
+        animate={shouldAnimate ? { pathLength: 1 } : undefined}
         transition={drawTransition}
       />
       <motion.path
         d="M22 13a6 6 0 1 0 0 6"
         opacity="0.7"
-        initial={animated ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
+        initial={shouldAnimate ? { pathLength: 0 } : false}
+        animate={shouldAnimate ? { pathLength: 1 } : undefined}
         transition={{ ...drawTransition, delay: 0.15 }}
       />
       <motion.path
         d="M19 15.5a2.5 2.5 0 1 0 0 1"
         opacity="0.45"
-        initial={animated ? { pathLength: 0 } : false}
-        animate={{ pathLength: 1 }}
+        initial={shouldAnimate ? { pathLength: 0 } : false}
+        animate={shouldAnimate ? { pathLength: 1 } : undefined}
         transition={{ ...drawTransition, delay: 0.3 }}
       />
     </g>

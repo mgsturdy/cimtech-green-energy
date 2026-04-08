@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Logo } from '@/components/ui/Logo';
 import { navigation } from '@/data/navigation';
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-[30px] bg-[rgba(4,31,26,0.7)]">
@@ -37,11 +38,13 @@ export function Header() {
         >
           <motion.span
             className="block h-px w-6 bg-[var(--color-foreground)]"
-            animate={open ? { rotate: 45, y: 3 } : { rotate: 0, y: 0 }}
+            animate={reduced ? undefined : open ? { rotate: 45, y: 3 } : { rotate: 0, y: 0 }}
+            style={reduced ? { rotate: open ? 45 : 0, y: open ? 3 : 0 } : undefined}
           />
           <motion.span
             className="block h-px w-6 bg-[var(--color-foreground)]"
-            animate={open ? { rotate: -45, y: -3 } : { rotate: 0, y: 0 }}
+            animate={reduced ? undefined : open ? { rotate: -45, y: -3 } : { rotate: 0, y: 0 }}
+            style={reduced ? { rotate: open ? -45 : 0, y: open ? -3 : 0 } : undefined}
           />
         </button>
       </div>
@@ -49,9 +52,9 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={reduced ? false : { opacity: 0, y: -10 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            exit={reduced ? undefined : { opacity: 0, y: -10 }}
             className="md:hidden border-t border-[var(--color-border)] bg-[var(--color-background)]"
           >
             <nav className="px-[var(--spacing-pad-x)] py-6 flex flex-col gap-4">

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { AnimatedHeadline } from '@/components/ui/AnimatedHeadline';
 import { Button } from '@/components/ui/Button';
 
@@ -32,6 +32,7 @@ export function HeroHome({
   backgroundImage,
   imageAlt = '',
 }: HeroHomeProps) {
+  const reduced = useReducedMotion();
   // Resolve props — support both legacy (content.ts) and new API
   const resolvedLabel = label ?? badge;
   const resolvedTitle = title ?? headline ?? '';
@@ -50,10 +51,10 @@ export function HeroHome({
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(4,31,26,0.4)] via-transparent to-[rgba(4,31,26,0.95)]" />
 
       {/* Corner markers */}
-      <div className="absolute top-24 left-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)]">
+      <div className="absolute top-24 left-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden sm:block">
         + CIMTECH // EST. 2001 // ONTARIO, CAN
       </div>
-      <div className="absolute top-24 right-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)]">
+      <div className="absolute top-24 right-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden md:block">
         43.6532°N 79.3832°W +
       </div>
 
@@ -70,8 +71,8 @@ export function HeroHome({
         )}
         {primaryCta && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={reduced ? false : { opacity: 0, y: 20 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.6 }}
             className="mt-10 flex flex-wrap gap-4"
           >
@@ -83,15 +84,17 @@ export function HeroHome({
         )}
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-        <div className="w-6 h-10 border border-[var(--color-border-strong)] rounded-full flex items-start justify-center p-1.5">
-          <motion.span
-            className="block w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"
-            animate={{ y: [0, 14, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          />
+      {!reduced && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
+          <div className="w-6 h-10 border border-[var(--color-border-strong)] rounded-full flex items-start justify-center p-1.5">
+            <motion.span
+              className="block w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"
+              animate={{ y: [0, 14, 0] }}
+              transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

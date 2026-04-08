@@ -1,12 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 type Item = { title: string; description: string; number?: string };
 
 export function Accordion({ items }: { items: Item[] }) {
   const [open, setOpen] = useState<number | null>(0);
+  const reduced = useReducedMotion();
   return (
     <div className="border-y border-[var(--color-border)]">
       {items.map((item, i) => {
@@ -33,7 +34,8 @@ export function Accordion({ items }: { items: Item[] }) {
                 </span>
               </div>
               <motion.span
-                animate={{ rotate: isOpen ? 45 : 0 }}
+                animate={reduced ? undefined : { rotate: isOpen ? 45 : 0 }}
+                style={reduced ? { rotate: isOpen ? 45 : 0 } : undefined}
                 className="font-mono text-2xl text-[var(--color-accent)] pr-6"
               >
                 +
@@ -42,9 +44,9 @@ export function Accordion({ items }: { items: Item[] }) {
             <AnimatePresence initial={false}>
               {isOpen && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
+                  initial={reduced ? false : { height: 0, opacity: 0 }}
+                  animate={reduced ? undefined : { height: 'auto', opacity: 1 }}
+                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
