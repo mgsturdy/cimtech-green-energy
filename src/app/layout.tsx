@@ -1,22 +1,19 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter, Geist_Mono } from 'next/font/google';
+import { Inter_Tight, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import './globals.css';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: '--font-plus-jakarta-sans',
+const interTight = Inter_Tight({
+  variable: '--font-inter-tight',
   subsets: ['latin'],
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
+  weight: ['400', '500', '600'],
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  weight: ['400', '600'],
 });
 
 export const metadata: Metadata = {
@@ -28,8 +25,6 @@ export const metadata: Metadata = {
     'Precision manufacturing partner serving defense, commercial, consumer, and clean energy sectors. NPI prototyping to production scale from Vancouver, Canada.',
 };
 
-// Note: font-sub (Inter) is the body default. CIMtech uses Inter (body-friendly) as default,
-// with font-sans (Plus Jakarta Sans) applied explicitly on headings.
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${plusJakartaSans.variable} ${inter.variable} ${geistMono.variable} font-sub antialiased`}
-      >
+      <body className={`${interTight.variable} ${geistMono.variable} antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />
