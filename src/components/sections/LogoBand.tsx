@@ -12,14 +12,23 @@ export function LogoBand({ logos, label }: { logos: Logo[]; label?: string }) {
         </div>
       )}
       <Marquee>
-        {logos.map((logo, i) => (
-          <div
-            key={i}
-            className="h-10 w-32 relative opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
-          >
-            <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
-          </div>
-        ))}
+        {logos.map((logo, i) =>
+          logo.src ? (
+            <div
+              key={i}
+              className="h-10 w-32 relative opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+            >
+              <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+            </div>
+          ) : (
+            <div
+              key={i}
+              className="h-10 px-4 flex items-center justify-center border border-[var(--color-border)] opacity-60 hover:opacity-100 transition-opacity"
+            >
+              <span className="mono-label text-[var(--color-subtle)] whitespace-nowrap">{logo.alt}</span>
+            </div>
+          )
+        )}
       </Marquee>
     </section>
   );
