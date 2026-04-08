@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { HeroStatic } from '@/components/sections/HeroStatic';
-import { FeatureGrid } from '@/components/sections/FeatureGrid';
-import { CTASection } from '@/components/sections/CTASection';
+import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
+import { Accordion } from '@/components/sections/Accordion';
+import { TickerDivider } from '@/components/ui/TickerDivider';
+import { Button } from '@/components/ui/Button';
 import { servicesContent } from '@/data/content';
 
 export const metadata: Metadata = {
@@ -14,39 +15,42 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      {/* 1. Hero */}
-      <HeroStatic
-        title="Our Services"
-        description="Comprehensive manufacturing services from prototype to production"
+      <PageHero
+        breadcrumb="/ SERVICES"
+        label="ENGAGEMENT MODELS"
+        title="How we engage."
+        lede="From first prototype to full-scale repeat manufacturing — seven engagement models, one manufacturing partner."
       />
 
-      {/* 2. Feature Grid */}
-      <Section dark>
+      <TickerDivider />
+
+      <Section>
         <Container>
-          <div className="text-center mb-12">
-            <h2 className="font-sans text-3xl lg:text-4xl font-bold">
-              End-to-End Manufacturing Services
-            </h2>
-          </div>
-          <FeatureGrid
-            items={servicesContent.services.map((s) => ({
-              number: s.number,
-              title: s.title,
-              description: s.description,
+          <p className="mono-label text-[var(--color-accent)] mb-4">+ SERVICE OFFERINGS</p>
+          <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-12 max-w-xl">
+            End-to-end manufacturing services.
+          </h2>
+          <Accordion
+            items={servicesContent.services.map(({ number, title, description }) => ({
+              number,
+              title,
+              description,
             }))}
-            columns={3}
           />
         </Container>
       </Section>
 
-      {/* 3. CTA */}
       <Section>
         <Container>
-          <CTASection
-            title="Ready to Discuss Your Project?"
-            description="Our team is ready to bring your manufacturing project to life with precision and speed."
-            primaryCta={{ label: 'Contact Us', href: '/contact' }}
-          />
+          <div className="border border-[var(--color-border)] bg-[var(--color-surface)] p-10 md:p-16 corner-markers flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div>
+              <p className="mono-label text-[var(--color-accent)] mb-3">+ START YOUR PROJECT</p>
+              <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] max-w-lg">
+                Ready to discuss your project?
+              </h2>
+            </div>
+            <Button href="/contact" variant="primary">Open a line</Button>
+          </div>
         </Container>
       </Section>
     </>

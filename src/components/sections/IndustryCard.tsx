@@ -1,35 +1,52 @@
-import Link from 'next/link';
+'use client';
 
-type IndustryCardItem = {
-  number: string;
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { CursorGlow } from '@/components/ui/CursorGlow';
+import { ImageSpecimen } from '@/components/ui/ImageSpecimen';
+import { ScrollRevealStagger, staggerItemVariants } from '@/components/ui/ScrollReveal';
+
+type Industry = {
+  number?: string;
   title: string;
   description: string;
   href: string;
+  // Optional image fields — not present on homeContent.industries
+  image?: string;
+  imageAlt?: string;
+  label?: string;
 };
 
-type IndustryCardProps = {
-  items: IndustryCardItem[];
-};
-
-export function IndustryCards({ items }: IndustryCardProps) {
+export function IndustryCards({ items }: { items: Industry[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      {items.map((item) => (
-        <Link
-          key={item.title}
-          href={item.href}
-          className="group border border-border bg-surface rounded-xl p-6 transition-all duration-300 hover:border-accent/30 hover:-translate-y-0.5 hover:shadow-lg"
-        >
-          <div className="font-mono text-xs text-accent mb-3">{item.number}</div>
-          <h3 className="font-sans text-lg font-bold mb-2 group-hover:text-accent transition-colors">
-            {item.title}
-          </h3>
-          <p className="text-sm text-muted leading-relaxed">{item.description}</p>
-          <span className="inline-flex items-center gap-1.5 text-accent text-sm font-semibold mt-4">
-            Learn More <span aria-hidden="true">&rarr;</span>
-          </span>
-        </Link>
+    <ScrollRevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map((item, i) => (
+        <motion.div key={i} variants={staggerItemVariants}>
+          <Link href={item.href} className="block group h-full">
+            <CursorGlow className="border border-[var(--color-border)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-border-strong)] transition-colors corner-markers h-full flex flex-col">
+              {item.image && (
+                <ImageSpecimen
+                  src={item.image}
+                  alt={item.imageAlt ?? item.title}
+                  width={360}
+                  height={270}
+                  caption={item.label}
+                  className="mb-4"
+                />
+              )}
+              {item.number && (
+                <p className="mono-label text-[var(--color-subtle)] mb-3">{item.number}</p>
+              )}
+              <h3 className="font-semibold text-[var(--text-h3)] mb-2 flex-1">{item.title}</h3>
+              <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-6">{item.description}</p>
+              <p className="mono-label text-[var(--color-accent)] flex items-center gap-2">
+                VIEW SECTOR
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </p>
+            </CursorGlow>
+          </Link>
+        </motion.div>
       ))}
-    </div>
+    </ScrollRevealStagger>
   );
 }

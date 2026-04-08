@@ -147,7 +147,7 @@ export function ContactForm() {
           disabled={loading}
           className="w-full inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-md bg-accent text-white hover:bg-accent-hover active:bg-accent/90 px-5 py-3 text-sm disabled:opacity-50"
         >
-          {loading ? 'Sending...' : 'Send Message'}
+          {loading ? 'Transmitting...' : 'Transmit'}
         </button>
 
         {status === 'success' && (

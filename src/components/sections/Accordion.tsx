@@ -1,72 +1,58 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { type AccordionItem } from '@/data/content';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
-type AccordionProps = { items: AccordionItem[] };
+type Item = { title: string; description: string; number?: string };
 
-export function Accordion({ items }: AccordionProps) {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
+export function Accordion({ items }: { items: Item[] }) {
+  const [open, setOpen] = useState<number | null>(0);
+  const reduced = useReducedMotion();
   return (
-    <div className="flex flex-col gap-1">
+    <div className="border-y border-[var(--color-border)]">
       {items.map((item, i) => {
-        const isActive = activeIndex === i;
+        const isOpen = open === i;
         return (
           <div
-            key={item.number}
-            className={`border rounded-lg overflow-hidden transition-colors ${
-              isActive ? 'border-accent' : 'border-border'
-            }`}
+            key={i}
+            className={`border-b border-[var(--color-border)] ${isOpen ? 'bg-[var(--color-surface)]' : ''}`}
           >
-            {/* Header */}
             <button
               type="button"
-              className="flex items-center gap-3 px-6 py-4 cursor-pointer w-full text-left"
-              onClick={() => setActiveIndex(isActive ? -1 : i)}
+              onClick={() => setOpen(isOpen ? null : i)}
+              className="w-full flex items-center justify-between py-8 text-left group relative"
             >
-              <span className="font-mono text-xs text-accent min-w-[24px]">
-                {item.number}
-              </span>
-              <span className="font-semibold text-[15px] flex-1">
-                {item.title}
-              </span>
-              <span className="text-muted text-lg">
-                {isActive ? '\u2212' : '+'}
-              </span>
+              {isOpen && (
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[var(--color-accent)]" />
+              )}
+              <div className="flex items-center gap-6 pl-6">
+                <span className="mono-label text-[var(--color-subtle)]">
+                  {item.number ?? String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="font-semibold text-[var(--text-h3)] group-hover:text-[var(--color-accent)] transition-colors">
+                  {item.title}
+                </span>
+              </div>
+              <motion.span
+                animate={reduced ? undefined : { rotate: isOpen ? 45 : 0 }}
+                style={reduced ? { rotate: isOpen ? 45 : 0 } : undefined}
+                className="font-mono text-2xl text-[var(--color-accent)] pr-6"
+              >
+                +
+              </motion.span>
             </button>
-
-            {/* Body */}
             <AnimatePresence initial={false}>
-              {isActive && (
+              {isOpen && (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25, ease: 'easeInOut' }}
+                  initial={reduced ? false : { height: 0, opacity: 0 }}
+                  animate={reduced ? undefined : { height: 'auto', opacity: 1 }}
+                  exit={reduced ? undefined : { height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 pb-6">
-                    {/* Left: description */}
-                    <div>
-                      <p className="text-sm text-muted leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-
-                    {/* Right: image */}
-                    {item.image && (
-                      <div className="relative rounded-lg overflow-hidden h-[180px] w-full">
-                        <Image
-                          src={item.image}
-                          fill
-                          className="object-cover"
-                          alt={item.title}
-                        />
-                      </div>
-                    )}
-                  </div>
+                  <p className="pl-16 pr-6 pb-8 max-w-2xl text-[var(--color-muted)] leading-relaxed">
+                    {item.description}
+                  </p>
                 </motion.div>
               )}
             </AnimatePresence>

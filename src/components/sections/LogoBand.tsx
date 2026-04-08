@@ -1,30 +1,26 @@
 import Image from 'next/image';
+import { Marquee } from '@/components/ui/Marquee';
 
-type LogoBandProps = {
-  logos: { src: string; alt: string }[];
-  label?: string;
-};
+type Logo = { src: string; alt: string };
 
-export function LogoBand({ logos, label }: LogoBandProps) {
+export function LogoBand({ logos, label }: { logos: Logo[]; label?: string }) {
   return (
-    <div className="py-12 border-y border-border text-center">
+    <section className="py-20 border-y border-[var(--color-border)] bg-[var(--color-surface)]">
       {label && (
-        <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent mb-7">
-          {label}
-        </p>
+        <div className="text-center mb-10">
+          <p className="mono-label">{label}{' // 2001 \u2014 PRESENT'}</p>
+        </div>
       )}
-      <div className="flex justify-center items-center gap-12 flex-wrap">
-        {logos.map((logo) => (
-          <Image
-            key={logo.alt}
-            src={logo.src}
-            alt={logo.alt}
-            width={120}
-            height={40}
-            className="h-10 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
-          />
+      <Marquee>
+        {logos.map((logo, i) => (
+          <div
+            key={i}
+            className="h-10 w-32 relative opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+          >
+            <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+          </div>
         ))}
-      </div>
-    </div>
+      </Marquee>
+    </section>
   );
 }

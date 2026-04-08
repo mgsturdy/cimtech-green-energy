@@ -9,6 +9,7 @@ import { ConsultationForm } from '@/components/sections/ConsultationForm';
 import { PortfolioGrid } from '@/components/sections/PortfolioGrid';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
+import { TickerDivider } from '@/components/ui/TickerDivider';
 import { homeContent } from '@/data/content';
 import { portfolio } from '@/data/portfolio';
 
@@ -21,6 +22,8 @@ export default function Home() {
       {/* Metrics */}
       <MetricsBand metrics={homeContent.metrics} />
 
+      <TickerDivider />
+
       {/* About Split */}
       <Section>
         <Container>
@@ -31,43 +34,55 @@ export default function Home() {
             imageAlt={homeContent.about.imageAlt}
             imageOverlay={homeContent.about.imageCaption}
           >
-            <p className="text-muted leading-relaxed mb-3">{homeContent.about.description}</p>
-            <p className="text-sm text-muted leading-relaxed">{homeContent.about.secondaryText}</p>
+            <p className="leading-relaxed">{homeContent.about.description}</p>
+            <p className="text-sm leading-relaxed">{homeContent.about.secondaryText}</p>
           </SplitSection>
         </Container>
       </Section>
 
+      <TickerDivider />
+
       {/* Industries Overview */}
-      <Section className="bg-surface-elevated">
+      <Section>
         <Container>
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2.5 mb-3">
-              <span className="h-px w-8 bg-accent" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent">Industries We Serve</span>
-              <span className="h-px w-8 bg-accent" />
-            </div>
-            <h2 className="font-sans text-3xl font-bold">Built for Your Industry</h2>
-            <p className="text-muted mt-4 max-w-xl mx-auto">The same engineering rigor and manufacturing depth, tailored to your sector.</p>
+          <div className="mb-12">
+            <p className="mono-label text-[var(--color-accent)] mb-4 flex items-center gap-2">
+              <span className="h-px w-6 bg-[var(--color-accent)]" />
+              Industries We Serve
+            </p>
+            <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] max-w-xl">
+              Built for Your Industry
+            </h2>
+            <p className="text-[var(--color-muted)] mt-4 max-w-xl">
+              The same engineering rigor and manufacturing depth, tailored to your sector.
+            </p>
           </div>
           <IndustryCards items={homeContent.industries} />
         </Container>
       </Section>
 
+      <TickerDivider />
+
       {/* Capabilities Accordion */}
       <Section>
         <Container>
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-2.5 mb-3">
-              <span className="h-px w-8 bg-accent" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent">What We Do</span>
-              <span className="h-px w-8 bg-accent" />
-            </div>
-            <h2 className="font-sans text-3xl font-bold">Our Capabilities</h2>
-            <p className="text-muted mt-4 max-w-xl mx-auto">Over two decades of manufacturing expertise. NPI prototypes in as few as 14 days.</p>
+          <div className="mb-12">
+            <p className="mono-label text-[var(--color-accent)] mb-4 flex items-center gap-2">
+              <span className="h-px w-6 bg-[var(--color-accent)]" />
+              What We Do
+            </p>
+            <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] max-w-xl">
+              Our Capabilities
+            </h2>
+            <p className="text-[var(--color-muted)] mt-4 max-w-xl">
+              Over two decades of manufacturing expertise. NPI prototypes in as few as 14 days.
+            </p>
           </div>
           <Accordion items={homeContent.capabilities} />
         </Container>
       </Section>
+
+      <TickerDivider />
 
       {/* Client Logos */}
       <LogoBand logos={homeContent.clientLogos} label="Trusted By Industry Leaders" />
@@ -79,6 +94,8 @@ export default function Home() {
         </Container>
       </Section>
 
+      <TickerDivider />
+
       {/* Consultation Form CTA */}
       <Section>
         <Container>
@@ -89,15 +106,16 @@ export default function Home() {
         </Container>
       </Section>
 
+      <TickerDivider />
+
       {/* Portfolio Strip */}
-      <Section className="pb-0">
+      <Section>
         <Container>
-          <div className="text-center mb-4">
-            <div className="flex items-center justify-center gap-2.5">
-              <span className="h-px w-8 bg-accent" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent">Our Work</span>
-              <span className="h-px w-8 bg-accent" />
-            </div>
+          <div className="mb-12">
+            <p className="mono-label text-[var(--color-accent)] flex items-center gap-2">
+              <span className="h-px w-6 bg-[var(--color-accent)]" />
+              Our Work
+            </p>
           </div>
           <PortfolioGrid items={portfolio} />
         </Container>

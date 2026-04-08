@@ -1,54 +1,48 @@
 import Link from 'next/link';
-import { type ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 
 type ButtonProps = {
-  children: ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'ghost' | 'outline' | 'secondary';
+  children: ReactNode;
   className?: string;
-  type?: 'button' | 'submit';
-  onClick?: () => void;
+  /** @deprecated Will be removed in Phase 4 refactor */
+  size?: 'sm' | 'md' | 'lg';
+} & Omit<ComponentProps<'button'>, 'ref'>;
+
+const base =
+  'group relative inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.15em] px-5 py-3 overflow-hidden transition-colors border';
+
+const variants: Record<string, string> = {
+  primary:
+    'border-[var(--color-accent)] text-[var(--color-background)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]',
+  outline:
+    'border-[var(--color-border-strong)] text-[var(--color-foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]',
+  ghost:
+    'border-transparent text-[var(--color-foreground)] hover:text-[var(--color-accent)]',
+  // Legacy alias — maps to outline
+  secondary:
+    'border-[var(--color-border-strong)] text-[var(--color-foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]',
 };
 
-export function Button({
-  children,
-  href,
-  variant = 'primary',
-  size = 'md',
-  className = '',
-  type = 'button',
-  onClick,
-}: ButtonProps) {
-  const base =
-    'inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
-
-  const variants = {
-    primary: 'bg-accent text-white hover:bg-accent-hover active:bg-accent/90',
-    secondary:
-      'border border-border text-foreground hover:border-accent hover:text-accent',
-    ghost: 'text-muted hover:text-foreground',
-  };
-
-  const sizes = {
-    sm: 'px-3 py-2 text-sm',
-    md: 'px-5 py-2.5 text-sm',
-    lg: 'px-7 py-3.5 text-base',
-  };
-
-  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
-
+export function Button({ href, variant = 'primary', children, className = '', size: _size, ...rest }: ButtonProps) {
+  const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
+  const content = (
+    <>
+      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+    </>
+  );
   if (href) {
     return (
       <Link href={href} className={classes}>
-        {children}
+        {content}
       </Link>
     );
   }
-
   return (
-    <button type={type} onClick={onClick} className={classes}>
-      {children}
+    <button className={classes} {...rest}>
+      {content}
     </button>
   );
 }

@@ -1,29 +1,41 @@
-import Image from 'next/image';
-import { type PortfolioItem } from '@/data/portfolio';
+'use client';
 
-type PortfolioGridProps = {
-  items: PortfolioItem[];
-  columns?: number;
+import { motion } from 'framer-motion';
+import { ImageSpecimen } from '@/components/ui/ImageSpecimen';
+import { ScrollRevealStagger, staggerItemVariants } from '@/components/ui/ScrollReveal';
+
+// Accepts both the legacy portfolio.ts shape { image, caption }
+// and the plan's new shape { title, category?, image, imageAlt? }
+type Item = {
+  image: string;
+  caption?: string;   // legacy: portfolio.ts
+  title?: string;     // new API
+  category?: string;  // new API
+  imageAlt?: string;  // new API
 };
 
-export function PortfolioGrid({ items }: PortfolioGridProps) {
+export function PortfolioGrid({ items, columns: _columns }: { items: Item[]; columns?: number }) {
   return (
-    <div className="grid grid-cols-3 md:grid-cols-6 gap-1 rounded-xl overflow-hidden">
-      {items.map((item) => (
-        <div key={item.caption} className="relative group h-[120px]">
-          <Image
-            src={item.image}
-            alt={item.caption}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-            <span className="text-white text-xs font-semibold text-center px-2">
-              {item.caption}
-            </span>
-          </div>
-        </div>
-      ))}
-    </div>
+    <ScrollRevealStagger className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {items.map((item, i) => {
+        const title = item.title ?? item.caption ?? '';
+        const alt = item.imageAlt ?? title;
+        const captionLabel = `${String(i + 1).padStart(3, '0')} // ${item.category ?? 'PROJECT'}`;
+        return (
+          <motion.div key={i} variants={staggerItemVariants} className="group">
+            <ImageSpecimen
+              src={item.image}
+              alt={alt}
+              width={240}
+              height={180}
+              caption={captionLabel}
+            />
+            <h3 className="mt-4 font-semibold text-base group-hover:text-[var(--color-accent)] transition-colors">
+              {title}
+            </h3>
+          </motion.div>
+        );
+      })}
+    </ScrollRevealStagger>
   );
 }

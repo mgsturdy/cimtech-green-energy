@@ -74,7 +74,7 @@ export const homeContent = {
     badge: "One of Canada's Top 10 Manufacturing Companies",
     headline: 'Your Manufacturing Partner. From Prototype to Production.',
     description: 'Precision manufacturing across defense, commercial, consumer, and clean energy. Over two decades of experience bringing complex products from concept to scale.',
-    primaryCta: { label: 'Get a Quote', href: '/contact' },
+    primaryCta: { label: 'Start a project', href: '/contact' },
     secondaryCta: { label: 'Our Capabilities', href: '/capabilities' },
     backgroundImage: '/images/hero-1.jpg',
   } as HeroContent,
@@ -133,7 +133,7 @@ export const homeContent = {
   },
 
   cta: {
-    title: 'Get Your Free Consultation & Quote',
+    title: 'Start a project with CIMtech.',
     description: 'Our engineering team is ready to discuss your manufacturing needs — from NPI prototyping to scaled production across any industry.',
   },
 };
@@ -415,8 +415,8 @@ export const whatWeBuildContent = {
 // ============================================
 
 export const contactContent = {
-  heading: 'Contact Us - Get in Touch',
-  description: 'Have a question about manufacturing capabilities or partnering? Need a quote? Simply complete the form and someone will be in touch.',
+  heading: 'Open a line with CIMtech.',
+  description: 'Have a question about manufacturing capabilities or partnering? Need a quote? Complete the form and we will respond within 24 hours.',
 };
 
 // ============================================

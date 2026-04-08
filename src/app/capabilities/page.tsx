@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { HeroStatic } from '@/components/sections/HeroStatic';
-import { AccordionDetail } from '@/components/sections/AccordionDetail';
-import { CTASection } from '@/components/sections/CTASection';
+import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
-import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
+import { AccordionDetail } from '@/components/sections/AccordionDetail';
+import { TickerDivider } from '@/components/ui/TickerDivider';
+import { Button } from '@/components/ui/Button';
 import { capabilitiesContent } from '@/data/content';
 
 export const metadata: Metadata = {
@@ -17,85 +16,66 @@ export const metadata: Metadata = {
 export default function CapabilitiesPage() {
   return (
     <>
-      {/* 1. Hero */}
-      <HeroStatic title="Our Capabilities" />
+      <PageHero
+        breadcrumb="/ CAPABILITIES"
+        label="WHAT WE MAKE"
+        title="What we make, to spec, at scale."
+        lede={capabilitiesContent.overview}
+      />
 
-      {/* 2. Overview */}
+      <TickerDivider />
+
+      {/* Capability detail accordion */}
       <Section>
         <Container>
-          <Badge className="mb-4">Manufacturing Excellence</Badge>
-          <p className="text-muted leading-relaxed max-w-3xl mb-8">
-            {capabilitiesContent.overview}
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-muted">
-            {capabilitiesContent.stats.map((stat, i) => (
-              <li key={i}>{stat}</li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
-
-      {/* 3. Accordion Detail */}
-      <Section dark>
-        <Container>
-          <h2 className="font-sans text-3xl font-bold text-center mb-10">
-            What We Do
+          <p className="mono-label text-[var(--color-accent)] mb-4">+ PROCESSES</p>
+          <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-12 max-w-xl">
+            Six manufacturing disciplines. One partner.
           </h2>
           <AccordionDetail items={capabilitiesContent.capabilities} />
         </Container>
       </Section>
 
-      {/* 4. Equipment Specs */}
+      <TickerDivider />
+
+      {/* Equipment specs */}
       <Section>
         <Container>
-          <h2 className="font-sans text-3xl font-bold text-center mb-10">
-            Equipment &amp; Specifications
+          <p className="mono-label text-[var(--color-accent)] mb-4">+ EQUIPMENT</p>
+          <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-12 max-w-xl">
+            Facility specifications.
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card>
-              <h3 className="font-semibold text-sm text-foreground mb-2">
-                Measuring Instruments
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                {capabilitiesContent.equipment.measuring}
-              </p>
-            </Card>
-            <Card>
-              <h3 className="font-semibold text-sm text-foreground mb-2">
-                Secondary Processes
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                {capabilitiesContent.equipment.secondary}
-              </p>
-            </Card>
-            <Card>
-              <h3 className="font-semibold text-sm text-foreground mb-2">
-                Assembly Equipment
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                {capabilitiesContent.equipment.assembly}
-              </p>
-            </Card>
-            <Card>
-              <h3 className="font-semibold text-sm text-foreground mb-2">
-                Fabrication Equipment
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                {capabilitiesContent.equipment.fabrication}
-              </p>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-[var(--color-border)] bg-[var(--color-border)]">
+            {[
+              { label: 'MEASURING INSTRUMENTS', text: capabilitiesContent.equipment.measuring },
+              { label: 'SECONDARY PROCESSES', text: capabilitiesContent.equipment.secondary },
+              { label: 'ASSEMBLY EQUIPMENT', text: capabilitiesContent.equipment.assembly },
+              { label: 'FABRICATION EQUIPMENT', text: capabilitiesContent.equipment.fabrication },
+            ].map(({ label, text }) => (
+              <div key={label} className="bg-[var(--color-surface)] p-8">
+                <p className="mono-label text-[var(--color-accent)] mb-3">{label}</p>
+                <p className="text-sm text-[var(--color-muted)] leading-relaxed">{text}</p>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
 
-      {/* 5. CTA */}
+      {/* Stats + CTA */}
       <Section>
         <Container>
-          <CTASection
-            title="Ready to Start Your Project?"
-            description="Our team is ready to bring your manufacturing project to life with precision and speed."
-            primaryCta={{ label: 'Contact Us', href: '/contact' }}
-          />
+          <div className="border border-[var(--color-border)] bg-[var(--color-surface)] p-10 md:p-16 corner-markers">
+            <p className="mono-label text-[var(--color-accent)] mb-6">+ BY THE NUMBERS</p>
+            <ul className="space-y-4 mb-10 max-w-2xl">
+              {capabilitiesContent.stats.map((stat, i) => (
+                <li key={i} className="flex items-start gap-4 border-b border-[var(--color-border)] pb-4 last:border-0 last:pb-0">
+                  <span className="mono-label text-[var(--color-subtle)] shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="text-[var(--color-muted)]">{stat}</span>
+                </li>
+              ))}
+            </ul>
+            <Button href="/contact" variant="primary">Start a project</Button>
+          </div>
         </Container>
       </Section>
     </>
