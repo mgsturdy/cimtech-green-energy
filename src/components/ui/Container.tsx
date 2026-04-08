@@ -1,14 +1,11 @@
-import { type ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 
-export function Container({
-  children,
-  className = '',
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
+export function Container({ className = '', children, ...rest }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={`mx-auto w-full max-w-7xl px-6 lg:px-8 ${className}`}>
+    <div
+      className={`w-full mx-auto max-w-[1440px] px-[var(--spacing-pad-x)] ${className}`}
+      {...rest}
+    >
       {children}
     </div>
   );
