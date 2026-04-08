@@ -3,25 +3,30 @@ import type { ComponentProps, ReactNode } from 'react';
 
 type ButtonProps = {
   href?: string;
-  variant?: 'primary' | 'ghost' | 'outline';
+  variant?: 'primary' | 'ghost' | 'outline' | 'secondary';
   children: ReactNode;
   className?: string;
+  /** @deprecated Will be removed in Phase 4 refactor */
+  size?: 'sm' | 'md' | 'lg';
 } & Omit<ComponentProps<'button'>, 'ref'>;
 
 const base =
   'group relative inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.15em] px-5 py-3 overflow-hidden transition-colors border';
 
-const variants = {
+const variants: Record<string, string> = {
   primary:
     'border-[var(--color-accent)] text-[var(--color-background)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]',
   outline:
     'border-[var(--color-border-strong)] text-[var(--color-foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]',
   ghost:
     'border-transparent text-[var(--color-foreground)] hover:text-[var(--color-accent)]',
+  // Legacy alias — maps to outline
+  secondary:
+    'border-[var(--color-border-strong)] text-[var(--color-foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]',
 };
 
-export function Button({ href, variant = 'primary', children, className = '', ...rest }: ButtonProps) {
-  const classes = `${base} ${variants[variant]} ${className}`;
+export function Button({ href, variant = 'primary', children, className = '', size: _size, ...rest }: ButtonProps) {
+  const classes = `${base} ${variants[variant] ?? variants.primary} ${className}`;
   const content = (
     <>
       <span className="relative z-10">{children}</span>
