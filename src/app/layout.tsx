@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter_Tight, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
+import { DuotoneFilter } from '@/components/ui/DuotoneFilter';
 import './globals.css';
 
 const interTight = Inter_Tight({
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interTight.variable} ${geistMono.variable} antialiased`}>
+        <DuotoneFilter />
         <Header />
         <main>{children}</main>
         <Footer />
