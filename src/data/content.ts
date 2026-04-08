@@ -97,10 +97,10 @@ export const homeContent = {
   },
 
   industries: [
-    { number: '01', title: 'Defense & Military', description: 'Mil-spec components, ruggedized assemblies, and ITAR-compliant manufacturing with full traceability.', href: '/industries' },
-    { number: '02', title: 'Commercial & Industrial', description: 'Production scaling, supply chain reliability, and OEM partnerships for industrial applications.', href: '/industries' },
-    { number: '03', title: 'Consumer Products', description: 'Rapid NPI, DFM feedback loops, and scaling from prototype to production runs.', href: '/industries' },
-    { number: '04', title: 'Clean Energy', description: 'Fuel cell stacks, electrolyzers, and hydrogen power systems. Home of our Rise Power sub-brand.', href: '/industries' },
+    { number: '01', title: 'Defense & Military', description: 'Mil-spec components, ruggedized assemblies, and ITAR-compliant manufacturing with full traceability.', href: '/industries', image: '/images/capability-6.jpg', imageAlt: 'Precision manufacturing for defense' },
+    { number: '02', title: 'Commercial & Industrial', description: 'Production scaling, supply chain reliability, and OEM partnerships for industrial applications.', href: '/industries', image: '/images/capability-1.jpg', imageAlt: 'Commercial manufacturing' },
+    { number: '03', title: 'Consumer Products', description: 'Rapid NPI, DFM feedback loops, and scaling from prototype to production runs.', href: '/industries', image: '/images/capability-4.jpg', imageAlt: 'Consumer product manufacturing' },
+    { number: '04', title: 'Clean Energy', description: 'Fuel cell stacks, electrolyzers, and hydrogen power systems. Home of our Rise Power sub-brand.', href: '/industries', image: '/images/product-1.jpg', imageAlt: 'Clean energy manufacturing' },
   ],
 
   capabilities: [
