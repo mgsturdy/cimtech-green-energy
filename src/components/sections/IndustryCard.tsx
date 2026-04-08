@@ -24,16 +24,15 @@ export function IndustryCards({ items }: { items: Industry[] }) {
         <motion.div key={i} variants={staggerItemVariants}>
           <Link href={item.href} className="block group h-full">
             <CursorGlow className="border border-[var(--color-border)] bg-[var(--color-surface)] p-6 hover:border-[var(--color-border-strong)] transition-colors corner-markers h-full flex flex-col">
-              {item.image && (
-                <ImageSpecimen
-                  src={item.image}
-                  alt={item.imageAlt ?? item.title}
-                  width={360}
-                  height={270}
-                  caption={item.label}
-                  className="mb-4"
-                />
-              )}
+              <ImageSpecimen
+                src={item.image}
+                alt={item.imageAlt ?? item.title}
+                width={360}
+                height={270}
+                caption={item.label}
+                placeholderLabel={item.number ?? 'SECTOR'}
+                className="mb-4"
+              />
               {item.number && (
                 <p className="mono-label text-[var(--color-subtle)] mb-3">{item.number}</p>
               )}
