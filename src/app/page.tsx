@@ -56,7 +56,7 @@ export default function Home() {
               Our Capabilities
             </h2>
             <p className="text-[var(--color-muted)] mt-4 max-w-xl">
-              Over two decades of manufacturing expertise. NPI prototypes in as few as 14 days.
+              Soup-to-nuts operation — from concept through prototyping, production, assembly, and end-to-end testing. NPI in as few as 10 working days.
             </p>
           </div>
           <Accordion items={homeContent.capabilities} />

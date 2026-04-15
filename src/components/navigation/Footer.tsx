@@ -3,7 +3,7 @@ import { Logo } from '@/components/ui/Logo';
 import { Marquee } from '@/components/ui/Marquee';
 import { navigation } from '@/data/navigation';
 
-const TICKER = ['● OPERATIONAL', '43.6532°N 79.3832°W', 'EST. 2001', 'ISO 9001:2015', 'RUNTIME 23Y'];
+const TICKER = ['● OPERATIONAL', '43.6532°N 79.3832°W', 'EST. 2005', 'ISO 9001:2015', 'AS9100D · AEROSPACE', 'RUNTIME 21Y'];
 
 export function Footer() {
   return (
@@ -62,7 +62,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-[var(--color-border)] py-6 text-center mono-label text-[var(--color-subtle)]">
-        © 2001–{new Date().getFullYear()} CIMtech Green Energy. All systems nominal.
+        © 2005–{new Date().getFullYear()} CIMtech Green Energy. All systems nominal.
       </div>
     </footer>
   );

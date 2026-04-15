@@ -1,12 +1,13 @@
 import { Marquee } from './Marquee';
 
 const ITEMS = [
-  'RUNTIME: 23Y',
+  'RUNTIME: 21Y',
   '49.2827°N 123.1207°W',
   'STATUS: OPERATIONAL',
   'ISO 9001:2015',
-  'NPI IN 14 DAYS',
-  'EST. 2001',
+  'AS9100D · AEROSPACE',
+  'NPI IN 10 WORKING DAYS',
+  'EST. 2005',
   'VANCOUVER / CANADA',
   '●',
 ];

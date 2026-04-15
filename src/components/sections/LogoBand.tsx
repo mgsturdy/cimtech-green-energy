@@ -8,7 +8,7 @@ export function LogoBand({ logos, label }: { logos: Logo[]; label?: string }) {
     <section className="py-20 border-y border-[var(--color-border)] bg-[var(--color-surface)]">
       {label && (
         <div className="text-center mb-10">
-          <p className="mono-label">{label}{' // 2001 \u2014 PRESENT'}</p>
+          <p className="mono-label">{label}{' // 2005 \u2014 PRESENT'}</p>
         </div>
       )}
       <Marquee>

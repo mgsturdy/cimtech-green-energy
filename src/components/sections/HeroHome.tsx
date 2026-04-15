@@ -9,6 +9,7 @@ type HeroHomeProps = {
   // Modern API (from plan)
   label?: string;
   title?: string;
+  subhead?: string;
   description?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
@@ -25,6 +26,7 @@ export function HeroHome({
   badge,
   title,
   headline,
+  subhead,
   description,
   primaryCta,
   secondaryCta,
@@ -52,7 +54,7 @@ export function HeroHome({
 
       {/* Corner markers */}
       <div className="absolute top-24 left-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden sm:block">
-        + CIMTECH // EST. 2001 // VANCOUVER, BC
+        + CIMTECH // EST. 2005 // VANCOUVER, BC
       </div>
       <div className="absolute top-24 right-[var(--spacing-pad-x)] mono-label text-[var(--color-accent)] hidden md:block">
         49.2827°N 123.1207°W +
@@ -64,6 +66,16 @@ export function HeroHome({
           text={resolvedTitle}
           className="font-semibold leading-[0.9] tracking-[-0.035em] w-full text-[clamp(2.5rem,7.5vw,8rem)]"
         />
+        {subhead && (
+          <motion.p
+            initial={reduced ? false : { opacity: 0, y: 12 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.6 }}
+            className="mt-4 font-medium leading-[1.05] tracking-[-0.02em] text-[var(--color-muted)] text-[clamp(1.25rem,3vw,3rem)]"
+          >
+            {subhead}
+          </motion.p>
+        )}
         {description && (
           <p className="mt-8 max-w-xl text-[var(--color-muted)] text-[var(--text-body)] leading-relaxed">
             {description}

@@ -1,63 +1,77 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
-
 type LogoProps = {
-  variant?: 'lockup' | 'mark' | 'wordmark';
+  variant?: 'lockup' | 'mark' | 'wordmark' | 'full-lockup';
   className?: string;
+  /** @deprecated animation is handled by IntroAnimation; kept for API compatibility */
   animated?: boolean;
 };
 
-export function Logo({ variant = 'lockup', className = '', animated = true }: LogoProps) {
-  const reduced = useReducedMotion();
-  const shouldAnimate = animated && !reduced;
-  const drawTransition = { duration: 0.8, ease: 'easeInOut' as const };
+// Brand mark geometry in a 64x64 viewBox.
+// Ring: currentColor arc (open on the right) — adapts to dark/light contexts.
+// Bar:  accent-green capsule threaded horizontally through the ring.
+function MarkGeometry() {
+  return (
+    <>
+      <path
+        d="M 51.9 22.7 A 22 22 0 1 0 51.9 41.3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="10"
+      />
+      <rect x="14" y="27" width="36" height="10" rx="5" fill="var(--color-accent)" />
+    </>
+  );
+}
+
+export function Logo({ variant = 'lockup', className = '' }: LogoProps) {
+  if (variant === 'mark') {
+    return (
+      <svg viewBox="0 0 64 64" className={className} aria-label="CIMtech Green Energy">
+        <MarkGeometry />
+      </svg>
+    );
+  }
 
   if (variant === 'wordmark') {
     return (
-      <svg viewBox="0 0 220 32" className={className} aria-label="CIMtech">
-        <text x="0" y="24" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="28" fontWeight="600" letterSpacing="-1.1" fill="currentColor">CIMTECH</text>
+      <svg viewBox="0 0 260 40" className={className} aria-label="CIMtech Green Energy">
+        <text x="0" y="26" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="30" fontWeight="600" letterSpacing="-1" fill="currentColor">CIMtech</text>
+        <text x="0" y="38" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="10" fontWeight="500" letterSpacing="0.08em">
+          <tspan fill="var(--color-accent)">GREEN</tspan>
+          <tspan dx="4" fill="currentColor" opacity="0.75">ENERGY</tspan>
+        </text>
       </svg>
     );
   }
 
-  const MarkPaths = (
-    <g fill="none" stroke="#A8FF1F" strokeWidth="2" strokeLinecap="round">
-      <motion.path
-        d="M25 9a10 10 0 1 0 0 14"
-        initial={shouldAnimate ? { pathLength: 0 } : false}
-        animate={shouldAnimate ? { pathLength: 1 } : undefined}
-        transition={drawTransition}
-      />
-      <motion.path
-        d="M22 13a6 6 0 1 0 0 6"
-        opacity="0.7"
-        initial={shouldAnimate ? { pathLength: 0 } : false}
-        animate={shouldAnimate ? { pathLength: 1 } : undefined}
-        transition={{ ...drawTransition, delay: 0.15 }}
-      />
-      <motion.path
-        d="M19 15.5a2.5 2.5 0 1 0 0 1"
-        opacity="0.45"
-        initial={shouldAnimate ? { pathLength: 0 } : false}
-        animate={shouldAnimate ? { pathLength: 1 } : undefined}
-        transition={{ ...drawTransition, delay: 0.3 }}
-      />
-    </g>
-  );
-
-  if (variant === 'mark') {
+  if (variant === 'full-lockup') {
+    // Larger lockup with mark + two-line wordmark. Used in intro animation / marketing surfaces.
     return (
-      <svg viewBox="0 0 32 32" className={className} aria-label="CIMtech">
-        {MarkPaths}
+      <svg viewBox="0 0 360 80" className={className} aria-label="CIMtech Green Energy">
+        <g transform="translate(4, 8)">
+          <MarkGeometry />
+        </g>
+        <text x="84" y="48" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="40" fontWeight="600" letterSpacing="-1.2" fill="currentColor">CIMtech</text>
+        <text x="86" y="66" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="15" fontWeight="500" letterSpacing="0.06em">
+          <tspan fill="var(--color-accent)">GREEN</tspan>
+          <tspan dx="6" fill="currentColor" opacity="0.8">ENERGY</tspan>
+        </text>
       </svg>
     );
   }
 
+  // Default nav lockup — compact, single-line-dominant. Matches previous footprint (h-6 → ~210px wide).
   return (
-    <svg viewBox="0 0 280 32" className={className} aria-label="CIMtech">
-      {MarkPaths}
-      <text x="44" y="24" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="28" fontWeight="600" letterSpacing="-1.1" fill="currentColor">CIMTECH</text>
+    <svg viewBox="0 0 280 32" className={className} aria-label="CIMtech Green Energy">
+      <g transform="translate(0, 0) scale(0.5)">
+        <MarkGeometry />
+      </g>
+      <text x="40" y="22" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="22" fontWeight="600" letterSpacing="-0.8" fill="currentColor">CIMtech</text>
+      <text x="40" y="30" fontFamily="var(--font-inter-tight), system-ui, sans-serif" fontSize="7" fontWeight="500" letterSpacing="0.14em">
+        <tspan fill="var(--color-accent)">GREEN</tspan>
+        <tspan dx="3" fill="currentColor" opacity="0.75">ENERGY</tspan>
+      </text>
     </svg>
   );
 }
