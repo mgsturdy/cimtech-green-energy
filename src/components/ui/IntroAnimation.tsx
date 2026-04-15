@@ -63,7 +63,7 @@ export function IntroAnimation() {
                 key="reveal"
                 exit={{ opacity: 0, scale: 0.92, filter: 'blur(6px)' }}
                 transition={{ duration: 0.5, ease: 'easeIn' }}
-                className="flex items-center gap-3 md:gap-5 text-[var(--color-foreground)]"
+                className="flex items-center gap-3 md:gap-5 text-[var(--color-brand-gray)]"
               >
                 <Step delay={0.15}><CGlyph /></Step>
                 <Plus delay={0.55} />
@@ -123,7 +123,7 @@ function Plus({ delay }: { delay: number }) {
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 0.7, scale: 1 }}
       transition={{ duration: 0.3, delay }}
-      className="font-mono text-2xl md:text-4xl text-[var(--color-accent)]"
+      className="font-mono text-2xl md:text-4xl text-[var(--color-brand-green)]"
       aria-hidden="true"
     >
       +
@@ -173,7 +173,7 @@ function PowerGlyph() {
   return (
     <svg viewBox="0 0 80 80" className="w-full h-full">
       <RingOnly />
-      <rect x="36" y="20" width="8" height="28" rx="4" fill="var(--color-accent)" />
+      <rect x="36" y="20" width="8" height="28" rx="4" fill="var(--color-brand-green)" />
     </svg>
   );
 }

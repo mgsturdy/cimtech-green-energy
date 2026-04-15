@@ -16,6 +16,10 @@
   --color-accent-dim: rgba(168, 255, 31, 0.15);
   --color-warn: #FB6B3C;
 
+  /* Brand lockup colors — fixed, PDF-faithful (site accent stays lime) */
+  --color-brand-gray: #6D6E71;
+  --color-brand-green: #2BB038;
+
   --font-sans: var(--font-inter-tight);
   --font-mono: var(--font-geist-mono);
 
