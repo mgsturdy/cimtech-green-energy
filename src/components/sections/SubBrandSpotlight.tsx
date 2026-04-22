@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
@@ -14,6 +15,8 @@ type SubBrandSpotlightProps = {
   // image fields are accepted but not rendered in this spotlight variant
   image?: string;
   imageAlt?: string;
+  logo?: string;
+  logoAlt?: string;
 };
 
 export function SubBrandSpotlight({
@@ -24,25 +27,30 @@ export function SubBrandSpotlight({
   cta,
   link,
   linkLabel,
+  logo,
+  logoAlt,
 }: SubBrandSpotlightProps) {
-  // Resolve props — support both legacy (content.ts) and new API
   const resolvedLabel = label ?? subtitle;
   const resolvedCta = cta ?? (link && linkLabel ? { label: linkLabel, href: link } : undefined);
 
   return (
-    <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] p-12 md:p-20 corner-markers">
-      {/* Gradient mesh */}
+    <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-20 corner-markers">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
         <div
           className="absolute -top-1/2 -left-1/4 w-[150%] h-[200%] animate-gradient-drift"
           style={{
             background:
-              'radial-gradient(circle at 30% 30%, rgba(168,255,31,0.3), transparent 40%), radial-gradient(circle at 70% 60%, rgba(251,107,60,0.2), transparent 40%)',
+              'radial-gradient(circle at 30% 30%, rgba(41,179,75,0.3), transparent 40%), radial-gradient(circle at 70% 60%, rgba(251,107,60,0.2), transparent 40%)',
           }}
         />
       </div>
 
       <ScrollReveal className="relative max-w-2xl">
+        {logo && (
+          <div className="relative h-14 w-48 mb-6">
+            <Image src={logo} alt={logoAlt ?? title} fill className="object-contain object-left" />
+          </div>
+        )}
         {resolvedLabel && (
           <p className="mono-label text-[var(--color-accent)] mb-4">+ {resolvedLabel}</p>
         )}

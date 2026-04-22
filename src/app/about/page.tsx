@@ -43,6 +43,32 @@ export default function AboutPage() {
 
       <TickerDivider />
 
+      {/* Certifications */}
+      <Section>
+        <Container>
+          <p className="mono-label text-[var(--color-accent)] mb-4">+ CERTIFICATIONS</p>
+          <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-12 max-w-xl">
+            Audited, accredited, trusted.
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {aboutContent.certifications.map((cert) => (
+              <div
+                key={cert.title}
+                className="border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-10"
+              >
+                <div className="flex items-baseline gap-4 mb-4">
+                  <span className="text-[var(--color-accent)] font-mono text-2xl">+</span>
+                  <h3 className="font-semibold text-[var(--text-h3)]">{cert.title}</h3>
+                </div>
+                <p className="text-[var(--color-muted)] leading-relaxed">{cert.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <TickerDivider />
+
       {/* History Timeline */}
       <Section>
         <Container>

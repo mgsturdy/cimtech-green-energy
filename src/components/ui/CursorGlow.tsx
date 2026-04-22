@@ -12,7 +12,7 @@ type CursorGlowProps = {
 export function CursorGlow({
   children,
   className = '',
-  color = 'rgba(168, 255, 31, 0.18)',
+  color = 'rgba(41, 179, 75, 0.18)',
   size = '15rem',
 }: CursorGlowProps) {
   const ref = useRef<HTMLDivElement>(null);

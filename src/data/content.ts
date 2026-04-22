@@ -82,9 +82,9 @@ export const homeContent = {
 
   metrics: [
     { value: '20+', label: 'Years Experience' },
-    { value: '60K+', label: 'Devices Delivered' },
+    { value: '60,000+', label: 'Devices Delivered' },
     { value: '4', label: 'Industries Served' },
-    { value: '20K', label: 'Sq Ft Facility' },
+    { value: '20,000', label: 'Sq Ft Facility' },
   ] as Metric[],
 
   about: {
@@ -114,23 +114,21 @@ export const homeContent = {
   ] as AccordionItem[],
 
   clientLogos: [
-    { src: '', alt: 'Client 1' },
-    { src: '', alt: 'Client 2' },
-    { src: '', alt: 'Client 3' },
-    { src: '', alt: 'Client 4' },
-    { src: '', alt: 'Client 5' },
-    { src: '', alt: 'Client 6' },
-    { src: '', alt: 'Client 7' },
+    { src: '/images/bmw-logo.png', alt: 'BMW' },
+    { src: '/images/mercedes-logo.svg', alt: 'Mercedes-Benz' },
+    { src: '/images/ballard-logo.png', alt: 'Ballard Power Systems' },
   ],
 
   risePower: {
     title: 'Rise Power',
     subtitle: 'Our Clean Energy Brand',
-    description: "We didn't just manufacture clean energy products — we built the brand. Rise Power is CIMtech's dedicated clean energy division, delivering fuel cell stacks, electrolyzers, and hydrogen power systems to the global market.",
+    description: "We didn't just manufacture clean energy products — we built the brand. Rise Power is CIMtech's dedicated clean energy division, delivering fuel cell stack units, electrolyzer components, and hydrogen power systems to the global market.",
     link: 'https://risepower.com',
     linkLabel: 'Visit Rise Power',
     image: '/images/rise-power.jpg',
     imageAlt: 'Rise Power - Clean Energy Products',
+    logo: '/images/rise-power-logo.svg',
+    logoAlt: 'Rise Power',
   },
 
   cta: {
@@ -205,6 +203,17 @@ export const aboutContent = {
   },
 
   vision: 'CIMtech Green Energy is your manufacturing partner from prototype to production — delivering precision, speed, and reliability across every industry we serve.',
+
+  certifications: [
+    {
+      title: 'ISO 9001 Certified',
+      description: 'Rigorous quality management systems governing every stage of design, manufacturing, and customer delivery.',
+    },
+    {
+      title: 'AS9100D Certified',
+      description: 'Aerospace and defense quality management — the standard required for mil-spec and aerospace program manufacturing.',
+    },
+  ],
 };
 
 // ============================================
@@ -407,11 +416,13 @@ export const whatWeBuildContent = {
 
   risePower: {
     title: 'Rise Power: Our Clean Energy Brand',
-    description: "We didn't just manufacture clean energy products — we built the brand. Rise Power is CIMtech's dedicated clean energy division, producing fuel cell stacks, PEM electrolyzers, and hydrogen power systems deployed globally. With 60,000+ devices in the field powering operations for companies like Walmart, Amazon, and Home Depot, Rise Power demonstrates what a deep CIMtech partnership can become.",
+    description: "We didn't just manufacture clean energy products — we built the brand. Rise Power is CIMtech's dedicated clean energy division, delivering fuel cell stack units, electrolyzer components, and hydrogen power systems to the global market.",
     link: 'https://risepower.com',
     linkLabel: 'Visit Rise Power',
     image: '/images/rise-power.jpg',
     imageAlt: 'Rise Power clean energy products',
+    logo: '/images/rise-power-logo.svg',
+    logoAlt: 'Rise Power',
   },
 };
 

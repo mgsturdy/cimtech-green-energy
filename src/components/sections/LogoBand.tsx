@@ -5,10 +5,10 @@ type Logo = { src: string; alt: string };
 
 export function LogoBand({ logos, label }: { logos: Logo[]; label?: string }) {
   return (
-    <section className="py-20 border-y border-[var(--color-border)] bg-[var(--color-surface)]">
+    <section className="py-12 md:py-20 border-y border-[var(--color-border)] bg-[var(--color-surface)]">
       {label && (
-        <div className="text-center mb-10">
-          <p className="mono-label">{label}{' // 2005 \u2014 PRESENT'}</p>
+        <div className="text-center mb-10 px-[var(--spacing-pad-x)]">
+          <p className="mono-label">{label}{' // 2005 — PRESENT'}</p>
         </div>
       )}
       <Marquee>
@@ -16,7 +16,7 @@ export function LogoBand({ logos, label }: { logos: Logo[]; label?: string }) {
           logo.src ? (
             <div
               key={i}
-              className="h-10 w-32 relative opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+              className="h-12 md:h-14 w-28 md:w-36 relative opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
             >
               <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
             </div>

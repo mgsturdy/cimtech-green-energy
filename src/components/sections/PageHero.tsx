@@ -9,9 +9,9 @@ type PageHeroProps = {
 
 export function PageHero({ breadcrumb, label, title, lede }: PageHeroProps) {
   return (
-    <section className="relative min-h-[60vh] flex flex-col justify-end border-b border-[var(--color-border)] overflow-hidden pt-32 pb-20">
+    <section className="relative min-h-[60vh] flex flex-col justify-end border-b border-[var(--color-border)] overflow-hidden pt-28 md:pt-32 pb-16 md:pb-20">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(168,255,31,0.08)] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[rgba(41,179,75,0.08)] via-transparent to-transparent" />
       </div>
       <div className="relative mx-auto max-w-[1440px] w-full px-[var(--spacing-pad-x)]">
         <p className="mono-label text-[var(--color-subtle)] mb-4">{breadcrumb}</p>

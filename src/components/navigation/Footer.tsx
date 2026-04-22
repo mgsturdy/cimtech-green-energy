@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { Marquee } from '@/components/ui/Marquee';
-import { navigation } from '@/data/navigation';
+import { navigation, contactInfo } from '@/data/navigation';
 
 const TICKER = ['● OPERATIONAL', '43.6532°N 79.3832°W', 'EST. 2005', 'ISO 9001:2015', 'AS9100D · AEROSPACE', 'RUNTIME 21Y'];
 
@@ -16,10 +16,10 @@ export function Footer() {
         </Marquee>
       </div>
 
-      <div className="mx-auto max-w-[1440px] px-[var(--spacing-pad-x)] py-20 grid grid-cols-12 gap-8">
+      <div className="mx-auto max-w-[1440px] px-[var(--spacing-pad-x)] py-14 md:py-20 grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-6">
           <Link href="/" className="text-[var(--color-foreground)] inline-block">
-            <Logo variant="lockup" className="h-7 w-auto" animated={false} />
+            <Logo variant="lockup" className="h-10 w-auto" animated={false} />
           </Link>
           <p className="mono-label mt-6 max-w-xs">
             Precision manufacturing partner. Defense. Commercial. Consumer. Clean energy.
@@ -42,8 +42,23 @@ export function Footer() {
         <div className="col-span-6 md:col-span-3">
           <p className="mono-label text-[var(--color-subtle)] mb-4">CONTACT</p>
           <ul className="space-y-2 text-sm">
-            <li>Vancouver, BC, Canada</li>
-            <li>hello@cimtech.ca</li>
+            <li>Surrey, BC, Canada</li>
+            <li>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="hover:text-[var(--color-accent)] break-all"
+              >
+                {contactInfo.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`}
+                className="hover:text-[var(--color-accent)]"
+              >
+                {contactInfo.phone}
+              </a>
+            </li>
             <li className="mono-label text-[var(--color-accent)] mt-4">● RESPONDS WITHIN 24H</li>
           </ul>
         </div>
@@ -55,7 +70,7 @@ export function Footer() {
       >
         <div
           className="font-sans font-semibold text-[20vw] leading-[0.8] tracking-[-0.04em] text-transparent"
-          style={{ WebkitTextStroke: '1px rgba(168,255,31,0.25)' }}
+          style={{ WebkitTextStroke: '1px rgba(41,179,75,0.25)' }}
         >
           CIMTECH
         </div>

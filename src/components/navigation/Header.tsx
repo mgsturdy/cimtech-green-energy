@@ -12,9 +12,9 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--color-border)] backdrop-blur-[30px] bg-[rgba(4,31,26,0.7)]">
-      <div className="mx-auto max-w-[1440px] px-[var(--spacing-pad-x)] flex items-center justify-between h-16">
+      <div className="mx-auto max-w-[1440px] px-[var(--spacing-pad-x)] flex items-center justify-between h-20">
         <Link href="/" className="text-[var(--color-foreground)]">
-          <Logo variant="lockup" className="h-6 w-auto" />
+          <Logo variant="lockup" className="h-9 md:h-10 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

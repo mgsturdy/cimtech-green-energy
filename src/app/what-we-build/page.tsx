@@ -70,6 +70,8 @@ export default function WhatWeBuildPage() {
             linkLabel={whatWeBuildContent.risePower.linkLabel}
             image={whatWeBuildContent.risePower.image}
             imageAlt={whatWeBuildContent.risePower.imageAlt}
+            logo={whatWeBuildContent.risePower.logo}
+            logoAlt={whatWeBuildContent.risePower.logoAlt}
           />
         </Container>
       </Section>

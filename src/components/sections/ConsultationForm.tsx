@@ -10,7 +10,7 @@ const inputBase =
 export function ConsultationForm({ title, description }: ConsultationFormProps) {
   const [sent, setSent] = useState(false);
   return (
-    <div className="grid grid-cols-12 gap-8 border border-[var(--color-border)] bg-[var(--color-surface)] p-10 md:p-16 corner-markers">
+    <div className="grid grid-cols-12 gap-8 border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-16 corner-markers">
       <div className="col-span-12 md:col-span-5">
         <p className="mono-label text-[var(--color-accent)] mb-4">● RESPONDING WITHIN 24H</p>
         <h2 className="font-semibold text-[var(--text-h2)] leading-[1.05] mb-4">{title}</h2>

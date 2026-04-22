@@ -30,7 +30,7 @@ export function AnimatedHeadline({ text, as = 'h1', className = '' }: AnimatedHe
           variants={{
             hidden: { color: '#6B7A73' },
             visible: {
-              color: ['#6B7A73', '#A8FF1F', '#F5F7F4'],
+              color: ['#6B7A73', '#29B34B', '#F5F7F4'],
               transition: { duration: reduced ? 0 : 1, times: [0, 0.3, 1], ease: 'easeOut' },
             },
           }}

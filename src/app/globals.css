@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Base — CimTech forest + lime */
+  /* Base — CimTech forest + brand green */
   --color-background: #041F1A;
   --color-surface: #07281F;
   --color-surface-elevated: #0B332A;
@@ -11,14 +11,16 @@
   --color-muted: #A8B5AE;
   --color-subtle: #6B7A73;
 
-  --color-accent: #A8FF1F;
-  --color-accent-hover: #C4FF4D;
-  --color-accent-dim: rgba(168, 255, 31, 0.15);
+  --color-accent: #29B34B;
+  --color-accent-hover: #36C558;
+  --color-accent-dim: rgba(41, 179, 75, 0.15);
   --color-warn: #FB6B3C;
 
-  /* Brand lockup colors — fixed, PDF-faithful (site accent stays lime) */
-  --color-brand-gray: #6D6E71;
-  --color-brand-green: #2BB038;
+  /* Brand lockup colors — matched to cimtech.com live site */
+  --color-brand-gray: #58595B;
+  --color-brand-gray-light: #A7A9AC;
+  --color-brand-green: #29B34B;
+  --color-brand-green-hover: #36C558;
 
   --font-sans: var(--font-inter-tight);
   --font-mono: var(--font-geist-mono);

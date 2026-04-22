@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Hex shield + lightning bolt through cylinder -->
+  <!-- Outer shield -->
+  <path d="M32 4 L56 18 V46 L32 60 L8 46 V18 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+  <!-- Cylinder / cartridge (vertical, centered) -->
+  <rect x="24" y="16" width="16" height="32" rx="8" stroke="currentColor" stroke-width="1.8" fill="none"/>
+
+  <!-- Lightning bolt cutting through -->
+  <path d="M35 20 L28 31 L32 31 L29 44 L36 33 L32 33 Z" fill="currentColor"/>
+</svg>

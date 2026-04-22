@@ -10,6 +10,7 @@ export const navigation: NavItem[] = [
   { label: 'Capabilities', href: '/capabilities' },
   { label: 'Services', href: '/services' },
   { label: 'What We Build', href: '/what-we-build' },
+  { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -18,7 +19,17 @@ export const contactInfo = {
   phoneDisplay: '604-575-8853',
   email: 'info@cimtech.green',
   address: '5 - 17942 55th Ave, Surrey, BC, Canada V3S 6C8',
-  hours: 'MON - FRI: 8:30 AM - 5 PM',
+  hours: 'Monday – Friday, 8:30 AM – 5:00 PM PT',
+  offices: [
+    {
+      label: 'Canada — Headquarters',
+      addressLines: ['Unit 5 — 17942 55th Avenue', 'Surrey, BC V3S 6C8', 'Canada'],
+    },
+    {
+      label: 'USA — Warehouse',
+      addressLines: ['1755 Grant Avenue', 'Blaine, WA 98230', 'United States'],
+    },
+  ],
   social: {
     facebook: 'https://www.facebook.com/CIMtechGreen-100166986037085',
     twitter: 'https://twitter.com/CIMtechGreen',
