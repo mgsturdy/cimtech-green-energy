@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { PageHero } from '@/components/sections/PageHero';
 import { Section } from '@/components/ui/Section';
 import { Container } from '@/components/ui/Container';
-import { ConsultationForm } from '@/components/sections/ConsultationForm';
+import { ContactForm } from '@/components/sections/ContactForm';
 import { TickerDivider } from '@/components/ui/TickerDivider';
 import { contactContent } from '@/data/content';
 import { contactInfo } from '@/data/navigation';
@@ -72,7 +72,7 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <ConsultationForm
+          <ContactForm
             title={contactContent.heading}
             description={contactContent.description}
           />

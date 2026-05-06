@@ -1,13 +1,14 @@
 export interface PortfolioItem {
   image: string;
   caption: string;
+  category?: string;
 }
 
 export const portfolio: PortfolioItem[] = [
-  { image: '/images/fuel-cell-assembly.jpg', caption: 'Precision Fuel Cell Assembly' },
-  { image: '/images/pvdf-machined.jpg', caption: 'PVDF Machined Components' },
-  { image: '/images/g10-fr4-end-plates.jpg', caption: 'G10 FR4 End Plates' },
-  { image: '/images/multi-component-assembly.jpg', caption: 'Multi-Component Assembly' },
-  { image: '/images/pem-electrolyzer.jpg', caption: 'PEM Electrolyzer System' },
-  { image: '/images/production-scale.jpg', caption: 'Production-Scale Deployment' },
+  { image: '/images/assemblies/aerospace-2.png', caption: 'Aerospace Assembly', category: 'AEROSPACE' },
+  { image: '/images/assemblies/fuelcell-3.png', caption: 'Hydrogen Fuel Cell Stack', category: 'HYDROGEN FUEL CELL' },
+  { image: '/images/assemblies/electrolyser-2.jpg', caption: 'Electrolyser Assembly', category: 'ELECTROLYSERS' },
+  { image: '/images/assemblies/electronics-2.png', caption: 'Electronics Assembly', category: 'ELECTRONICS' },
+  { image: '/images/assemblies/marine-1.png', caption: 'Marine Assembly', category: 'MARINE' },
+  { image: '/images/assemblies/mining-2.png', caption: 'Mining Assembly', category: 'MINING' },
 ];

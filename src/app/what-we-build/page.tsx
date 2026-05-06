@@ -28,8 +28,16 @@ export default function WhatWeBuildPage() {
       <TickerDivider />
 
       {/* Capability categories — alternating splits */}
-      {whatWeBuildContent.categories.map((category, i) => (
-        <Section key={category.title}>
+      {whatWeBuildContent.categories.map((category, i) => {
+        const id = category.title.toLowerCase().includes('component')
+          ? 'components'
+          : category.title.toLowerCase().includes('assembl')
+            ? 'assemblies'
+            : category.title.toLowerCase().includes('prototype')
+              ? 'prototypes'
+              : 'production';
+        return (
+        <Section key={category.title} id={id}>
           <Container>
             <SplitSection
               badge={String(i + 1).padStart(2, '0')}
@@ -42,7 +50,8 @@ export default function WhatWeBuildPage() {
             </SplitSection>
           </Container>
         </Section>
-      ))}
+        );
+      })}
 
       <TickerDivider />
 

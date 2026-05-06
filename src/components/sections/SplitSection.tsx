@@ -9,6 +9,7 @@ type SplitSectionProps = {
   imageAlt: string;
   imageOverlay?: string;
   reverse?: boolean;
+  grayscale?: boolean;
   children: ReactNode;
 };
 
@@ -19,6 +20,7 @@ export function SplitSection({
   imageAlt,
   imageOverlay,
   reverse = false,
+  grayscale = false,
   children,
 }: SplitSectionProps) {
   return (
@@ -40,6 +42,7 @@ export function SplitSection({
           width={560}
           height={400}
           className="w-full"
+          grayscale={grayscale}
         />
       </ScrollReveal>
     </div>

@@ -8,6 +8,7 @@ type ImageSpecimenProps = {
   height: number;
   className?: string;
   duotone?: boolean;
+  grayscale?: boolean;
   placeholderLabel?: string;
 };
 
@@ -19,6 +20,7 @@ export function ImageSpecimen({
   height,
   className = '',
   duotone = true,
+  grayscale = false,
   placeholderLabel,
 }: ImageSpecimenProps) {
   const aspect = `${width} / ${height}`;
@@ -37,7 +39,13 @@ export function ImageSpecimen({
             width={width}
             height={height}
             className="w-full h-auto block"
-            style={duotone ? { filter: 'url(#cimtech-duotone)' } : undefined}
+            style={
+              grayscale
+                ? { filter: 'grayscale(100%) contrast(1.05)' }
+                : duotone
+                  ? { filter: 'url(#cimtech-duotone)' }
+                  : undefined
+            }
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">

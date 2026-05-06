@@ -29,6 +29,7 @@ export function PortfolioGrid({ items, columns: _columns }: { items: Item[]; col
               width={240}
               height={180}
               caption={captionLabel}
+              grayscale
             />
             <h3 className="mt-4 font-semibold text-base group-hover:text-[var(--color-accent)] transition-colors">
               {title}

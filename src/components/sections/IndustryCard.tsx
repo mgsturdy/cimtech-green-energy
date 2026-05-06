@@ -32,6 +32,7 @@ export function IndustryCards({ items }: { items: Industry[] }) {
                 caption={item.label}
                 placeholderLabel={item.number ?? 'SECTOR'}
                 className="mb-4"
+                grayscale
               />
               {item.number && (
                 <p className="mono-label text-[var(--color-subtle)] mb-3">{item.number}</p>

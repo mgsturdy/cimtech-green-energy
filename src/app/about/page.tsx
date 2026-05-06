@@ -30,9 +30,9 @@ export default function AboutPage() {
         <Container>
           <SplitSection
             badge="LEADERSHIP"
-            title={aboutContent.team.name}
+            title="From the Founder"
             image={aboutContent.team.image}
-            imageAlt={aboutContent.team.name}
+            imageAlt="CIMtech leadership"
             imageOverlay={aboutContent.team.title}
           >
             <p className="italic">&ldquo;{aboutContent.team.quote}&rdquo;</p>

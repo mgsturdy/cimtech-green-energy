@@ -98,10 +98,10 @@ export const homeContent = {
   },
 
   industries: [
-    { number: '01', title: 'Defense & Military', description: 'Mil-spec components, ruggedized assemblies, and ITAR-compliant manufacturing with full traceability.', href: '/industries', image: '/images/defense.jpg', imageAlt: 'Precision manufacturing for defense' },
-    { number: '02', title: 'Commercial & Industrial', description: 'Production scaling, supply chain reliability, and OEM partnerships for industrial applications.', href: '/industries', image: '/images/commercial.jpg', imageAlt: 'Commercial manufacturing' },
-    { number: '03', title: 'Consumer Products', description: 'Rapid NPI, DFM feedback loops, and scaling from prototype to production runs.', href: '/industries', image: '/images/consumer.jpg', imageAlt: 'Consumer product manufacturing' },
-    { number: '04', title: 'Clean Energy', description: 'Fuel cell stacks, electrolyzers, and hydrogen power systems. Home of our Rise Power sub-brand.', href: '/industries', image: '/images/clean-energy.jpg', imageAlt: 'Clean energy manufacturing' },
+    { number: '01', title: 'Defense & Military', description: 'Mil-spec components, ruggedized assemblies, and ITAR-compliant manufacturing with full traceability.', href: '/industries', image: '/images/defense.png', imageAlt: 'Precision manufacturing for defense' },
+    { number: '02', title: 'Commercial & Industrial', description: 'Production scaling, supply chain reliability, and OEM partnerships for industrial applications.', href: '/industries', image: '/images/commercial.png', imageAlt: 'Commercial manufacturing' },
+    { number: '03', title: 'Consumer Products', description: 'Rapid NPI, DFM feedback loops, and scaling from prototype to production runs.', href: '/industries', image: '/images/consumer.png', imageAlt: 'Consumer product manufacturing — bike share system' },
+    { number: '04', title: 'Clean Energy', description: 'Fuel cell stacks, electrolyzers, and hydrogen power systems. Home of our Rise Power sub-brand.', href: '/industries', image: '/images/clean-energy.png', imageAlt: 'Hydrogen powered tuggers' },
   ],
 
   capabilities: [
@@ -152,7 +152,7 @@ export const aboutContent = {
   timeline: [
     { year: '2005', title: 'Founded', description: 'Paul Ghotra founds CIMtech, bringing decades of precision manufacturing expertise from leading BC hi-tech companies.' },
     { year: '2010', title: 'ISO 9001 Certified', description: 'Achieved ISO 9001 certification, establishing rigorous quality management systems across all operations.' },
-    { year: '2015', title: 'AS9100D Certification', description: 'Earned AS9100D aerospace certification, opening defense and aerospace manufacturing capabilities.' },
+    { year: '2015', title: 'AS9100D Certified', description: 'Earned AS9100D aerospace certification, opening defense and aerospace manufacturing capabilities.' },
     { year: '2018', title: 'Controlled Goods Program', description: 'Achieved Controlled Goods Program compliance for defense manufacturing in Canada.' },
     { year: '2022', title: 'Facility Expansion', description: 'Doubled manufacturing footprint with acquisition of 20,000 sq. ft advanced manufacturing facility in Vancouver.' },
     { year: '2024', title: 'Rise Power Launch', description: 'Launched Rise Power as a dedicated clean energy sub-brand, manufacturing fuel cell stacks and electrolyzers.' },
@@ -231,7 +231,7 @@ export const industriesContent = {
       whatWeSolve: 'Mil-spec components, ITAR-compliant manufacturing, ruggedized assemblies, and low-volume high-precision production runs. We understand the documentation, traceability, and quality requirements that defense programs demand.',
       whyCimtech: 'AS9100D and Controlled Goods Program certified. 20+ years of precision manufacturing with full material traceability. Our controlled facility and quality management systems are built for defense-grade work.',
       typicalWork: 'Precision-machined housings, power system components, ruggedized assemblies, and prototype-to-production scaling for defense programs.',
-      image: '/images/defense.jpg',
+      image: '/images/defense.png',
       imageAlt: 'Precision manufacturing for defense',
     },
     {
@@ -241,7 +241,7 @@ export const industriesContent = {
       whatWeSolve: 'Production scaling, supply chain reliability, DFM optimization, and repeat manufacturing with zero-inventory models. We help commercial partners reduce costs while maintaining quality at volume.',
       whyCimtech: 'Proven scale with 60,000+ devices shipped. ERP-driven operations, lean manufacturing processes, and engineering support from prototype through volume production. We become an extension of your team.',
       typicalWork: 'Production assemblies, industrial components, OEM partnerships, and ongoing repeat manufacturing programs.',
-      image: '/images/commercial.jpg',
+      image: '/images/commercial.png',
       imageAlt: 'Commercial manufacturing',
     },
     {
@@ -251,8 +251,8 @@ export const industriesContent = {
       whatWeSolve: 'NPI speed, rapid prototyping, design-for-manufacturing feedback, and scaling from 10 to 20,000 units. We help consumer product companies move from concept to market faster without sacrificing quality.',
       whyCimtech: 'Fast NPI cycles with 10 working day prototype turnaround. In-house engineering for DFM optimization. 3D printing, CNC machining, and injection molding under one roof — prototype to production without changing partners.',
       typicalWork: 'Product prototypes, first production runs, consumer device components, and bridge-to-production manufacturing.',
-      image: '/images/consumer.jpg',
-      imageAlt: 'Consumer product manufacturing',
+      image: '/images/consumer.png',
+      imageAlt: 'Consumer product manufacturing — bike share system',
     },
     {
       number: '04',
@@ -261,8 +261,8 @@ export const industriesContent = {
       whatWeSolve: 'Fuel cell stack manufacturing, electrolyzer components, hydrogen system assemblies, and specialized membrane handling. This is where CIMtech started, and where we have the deepest track record.',
       whyCimtech: 'Over 60,000 fuel cell devices deployed globally. Launched Rise Power as our own clean energy brand. Components utilized by global players including Walmart, Amazon, and Home Depot for hydrogen-powered equipment.',
       typicalWork: 'Fuel cell stacks, PEM electrolyzers, hydrogen power system assemblies, and clean energy device components.',
-      image: '/images/clean-energy.jpg',
-      imageAlt: 'Clean energy manufacturing',
+      image: '/images/clean-energy.png',
+      imageAlt: 'Hydrogen powered tuggers',
     },
   ] as IndustryItem[],
 };

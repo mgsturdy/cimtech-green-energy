@@ -1,16 +1,71 @@
+export interface NavChild {
+  label: string;
+  href: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
+  children?: NavChild[];
 }
 
 export const navigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Capabilities', href: '/capabilities' },
-  { label: 'Services', href: '/services' },
-  { label: 'What We Build', href: '/what-we-build' },
-  { label: 'Resources', href: '/resources' },
+  {
+    label: 'Industries',
+    href: '/industries',
+    children: [
+      { label: 'Defense & Military', href: '/industries#defense' },
+      { label: 'Commercial & Industrial', href: '/industries#commercial' },
+      { label: 'Consumer Products', href: '/industries#consumer' },
+      { label: 'Clean Energy', href: '/industries#clean-energy' },
+    ],
+  },
+  {
+    label: 'Capabilities',
+    href: '/capabilities',
+    children: [
+      { label: 'Precision CNC Machining', href: '/capabilities#cnc' },
+      { label: 'Injection Molding', href: '/capabilities#injection' },
+      { label: 'Fabrication & Welding', href: '/capabilities#fabrication' },
+      { label: '3D Printing', href: '/capabilities#3d-printing' },
+      { label: 'Assembly & Integration', href: '/capabilities#assembly' },
+      { label: 'Quality Assurance', href: '/capabilities#qa' },
+    ],
+  },
+  {
+    label: 'Services',
+    href: '/services',
+    children: [
+      { label: 'NPI Prototyping', href: '/services#npi-prototype' },
+      { label: 'Product Development', href: '/services#product-dev' },
+      { label: 'Repeat Manufacturing', href: '/services#repeat' },
+      { label: 'Design for Manufacturing', href: '/services#dfm' },
+      { label: 'Zero Inventory Program', href: '/services#zero-inventory' },
+      { label: 'System Integration', href: '/services#integration' },
+      { label: 'Engineering Development', href: '/services#engineering' },
+    ],
+  },
+  {
+    label: 'What We Build',
+    href: '/what-we-build',
+    children: [
+      { label: 'Precision Components', href: '/what-we-build#components' },
+      { label: 'Full Assemblies', href: '/what-we-build#assemblies' },
+      { label: 'Prototypes & NPI', href: '/what-we-build#prototypes' },
+      { label: 'Production at Scale', href: '/what-we-build#production' },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '/resources',
+    children: [
+      { label: 'Insights', href: '/resources#insights' },
+      { label: 'Case Studies', href: '/resources#case-studies' },
+      { label: 'Blog', href: '/resources#blog' },
+    ],
+  },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -31,10 +86,9 @@ export const contactInfo = {
     },
   ],
   social: {
-    facebook: 'https://www.facebook.com/CIMtechGreen-100166986037085',
-    twitter: 'https://twitter.com/CIMtechGreen',
-    linkedin: 'https://www.linkedin.com/company/cimtechgreenenergy',
-    youtube: 'https://www.youtube.com/@CIMtechGreenEnergy',
+    facebook: 'https://www.facebook.com/CIMtechGreenEnergy',
+    linkedin: 'https://ca.linkedin.com/company/cimtechgreenenergy',
     instagram: 'https://www.instagram.com/cimtechgreenenergy/',
+    x: 'https://x.com/CIMtechGreen',
   },
 };

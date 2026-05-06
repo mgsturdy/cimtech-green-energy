@@ -31,7 +31,8 @@ export default function IndustriesPage() {
             {industriesContent.industries.map((industry, i) => (
               <div
                 key={industry.title}
-                className={i > 0 ? 'pt-24 md:pt-32 border-t border-[var(--color-border)]' : ''}
+                id={industry.title.toLowerCase().includes('defense') ? 'defense' : industry.title.toLowerCase().includes('commercial') ? 'commercial' : industry.title.toLowerCase().includes('consumer') ? 'consumer' : 'clean-energy'}
+                className={`scroll-mt-24 ${i > 0 ? 'pt-24 md:pt-32 border-t border-[var(--color-border)]' : ''}`}
               >
                 <SplitSection
                   badge={industry.number}
@@ -39,6 +40,7 @@ export default function IndustriesPage() {
                   image={industry.image}
                   imageAlt={industry.imageAlt}
                   reverse={i % 2 === 1}
+                  grayscale
                 >
                   <div>
                     <p className="mono-label text-[var(--color-accent)] mb-2">WHAT WE SOLVE</p>
